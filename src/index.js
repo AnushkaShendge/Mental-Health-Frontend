@@ -1,12 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import ReactDOM from 'react-dom';
 import App from './App';
-import './output.css'
+import { AppStateProvider } from './AppStateContext';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <AppStateProvider>
+      <App />
+    </AppStateProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
