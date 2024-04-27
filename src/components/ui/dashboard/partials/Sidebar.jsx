@@ -804,7 +804,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('messages') && 'bg-slate-900'}`}>
                 <NavLink
                   end
-                  to="/messages"
+                  to="/blog"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes('messages') ? 'hover:text-slate-200' : 'hover:text-white'
                   }`}
