@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { AppStateProvider, useAppState } from "./AppStateContext";
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { ChatEngine } from 'react-chat-engine';
 import Dashboard from './components/ui/dashboard/pages/Dashboard';
 import ChatFeed from './components/ui/ChatPage/ChatFeed';
 import LoginForm from './components/ui/ChatPage/LoginForm';
 import './components/ui/dashboard/css/style.css';
 import './components/ui/ChatPage/ChatPage.css';
-import {Auth} from './components/ui/ChatPage/Auth';
-//import MyWebSocketComponent from './components/ui/ChatPage/Websocket'; // Import MyWebSocketComponent
+import Login from "./components/ui/login/login";
 
 const projectID = '121610f8-3526-459f-8ebd-39ed9a4b79e9';
 
 function App() {
+  const { loggedIn } = useAppState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Reset scroll position on route change
@@ -21,29 +23,30 @@ function App() {
     document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]);
 
+ 
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate('/dashboard');
+    }
+  }, [loggedIn, navigate]);
+
   return (
     <div>
-      {/* Render MyWebSocketComponent as a child component */}
-      {/* <MyWebSocketComponent /> */}
-
-      {/* Define routes for Dashboard and ChatComponent */}
       <Routes>
-        <Route exact path="/" element={<Dashboard />} />
-        <Route path="/chats" element={<ChatComponent />} />
+        <Route exact path="/" element={<Login />} />
+        <Route path="/dashboard" element={loggedIn ? <Dashboard /> : <navigate to="/" />} />
       </Routes>
     </div>
   );
 }
 
-// Define ChatComponent to render ChatEngine
 function ChatComponent() {
   const username = localStorage.getItem('username');
   const password = localStorage.getItem('password');
 
-  // Check if username or password is missing
   if (!username || !password) {
     return <LoginForm />;
-    <Auth />
   }
 
   return (
@@ -58,4 +61,10 @@ function ChatComponent() {
   );
 }
 
-export default App;
+export default function WrappedApp() {
+  return (
+    <AppStateProvider>
+      <App />
+    </AppStateProvider>
+  );
+}

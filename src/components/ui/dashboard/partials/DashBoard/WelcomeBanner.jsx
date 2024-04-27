@@ -1,6 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import './WelcomeBanner.css'
 
-function WelcomeBanner() {
+function WelcomeBanner({ username }) {
+  const getTimeOfDay = () => {
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 12) {
+      return 'Morning';
+    } else if (hour >= 12 && hour < 18) {
+      return 'Afternoon';
+    } else {
+      return 'Evening';
+    }
+  };
+  const greeting = () => {
+    const timeOfDay = getTimeOfDay();
+    return `Good ${timeOfDay}, ${username} 👋`;
+  };
+  const [showText, setShowText] = useState(false);
+
+  useEffect(() => {
+    // Function to animate text with typewriter effect
+    const animateText = () => {
+      const text = "Today is a great day, Tomorrow will be even better!";
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index <= text.length) {
+          setShowText(text.substring(0, index));
+          index++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 100); // Adjust the interval to change the typing speed
+    };
+
+    // Start animating text after a delay (e.g., 1 second)
+    const timeout = setTimeout(() => {
+      animateText();
+    }, 1000); 
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <div className="relative bg-indigo-200 dark:bg-indigo-500 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
       {/* Background illustration */}
@@ -47,8 +86,11 @@ function WelcomeBanner() {
 
       {/* Content */}
       <div className="relative">
-        <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">Good afternoon, Acme Inc. 👋</h1>
-        <p className="dark:text-indigo-200">Here is what’s happening with your projects today:</p>
+        <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">{greeting()} </h1>
+        <p className={`dark:text-indigo-400 ${showText ? 'typewriter typewriter-animation' : ''}`}>
+  {showText && "Today is a great day, Tomorrow will be even better"}
+</p>
+
       </div>
     </div>
   );

@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import SearchModal from '../jsx/ModalSearch';
 import Notifications from '../jsx/DropdownNotifications';
 import Help from '../jsx/DropdownHelp';
-import UserMenu from '../jsx/DropdownProfile';
+import DropdownProfile from '../jsx/DropdownProfile';
 import ThemeToggle from '../jsx/ThemeToggle';
 
 function Header({ sidebarOpen, setSidebarOpen }) {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const username = sessionStorage.getItem('username');
+  console.log('Username:', username);
 
   return (
     <header className="sticky top-0 bg-white dark:bg-[#182235] border-b border-slate-200 dark:border-slate-700 z-30">
@@ -66,7 +68,7 @@ function Header({ sidebarOpen, setSidebarOpen }) {
             <ThemeToggle />
             {/*  Divider */}
             <hr className="w-px h-6 bg-slate-200 dark:bg-slate-700 border-none" />
-            <UserMenu align="right" />
+            <DropdownProfile  username={username} align="right"/>
           </div>
         </div>
       </div>

@@ -22,6 +22,7 @@ import DashboardCard13 from '../partials/DashBoard/DashboardCard13';
 import Banner from '../partials/Banner';
 
 function Dashboard() {
+  const username = sessionStorage.getItem('username');
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -41,7 +42,8 @@ function Dashboard() {
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
 
             {/* Welcome banner */}
-            <WelcomeBanner />
+            
+            <WelcomeBanner username={username} />
 
             {/* Dashboard actions */}
             <div className="sm:flex sm:justify-between sm:items-center mb-8">
