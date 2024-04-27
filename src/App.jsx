@@ -26,8 +26,8 @@ function App() {
  
 
   useEffect(() => {
-    if (loggedIn) {
-      navigate('/dashboard');
+    if (!loggedIn) {
+      navigate('/');
     }
   }, [loggedIn, navigate]);
 
@@ -36,6 +36,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Login />} />
         <Route path="/dashboard" element={loggedIn ? <Dashboard /> : <navigate to="/" />} />
+        <Route path='/chats' element={<ChatComponent/>} />
       </Routes>
     </div>
   );
