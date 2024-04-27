@@ -15,7 +15,9 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
+    "firebase": "^10.11.1",
     "lucide-react": "^0.373.0",
+    "nextjs-websocket": "^1.0.11",
     "react": "^18.2.0",
     "react-chat-engine": "^1.11.28",
     "react-day-picker": "^8.10.1",
@@ -27,6 +29,7 @@
     "react-transition-group": "^4.4.5",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "universal-cookie": "^7.1.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
