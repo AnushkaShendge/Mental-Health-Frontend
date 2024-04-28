@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { AppStateProvider, useAppState } from "./AppStateContext";
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { ChatEngine } from 'react-chat-engine';
@@ -8,79 +8,30 @@ import LoginForm from './components/ui/ChatPage/LoginForm';
 import './components/ui/dashboard/css/style.css';
 import './components/ui/ChatPage/ChatPage.css';
 import Login from "./components/ui/login/login";
-import {Home} from "./components/ui/Blog/Pages/Home"
-import {Blog} from "./components/ui/Blog/Pages/Blog"
-import NewPost from './components/ui/Blog/Pages/NewPost/NewPost'
 
 const projectID = '121610f8-3526-459f-8ebd-39ed9a4b79e9';
 
 function App() {
-  const { loggedIn } = useAppState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const API_URL = 'http://localhost:3500/blogs';
-
-  const [blogs, setBlogs] = useState([]);
-  const [fetchError,setFetchError] = useState(null);
-  const [isLoading,setIsLoading] = useState(true);
-
-  const handleAddBlog = (newBlog) => {
-    setBlogs([...blogs, newBlog]); // Add the new blog to the existing array of blogs
-  }
-
-  useEffect(()=>{ //useEffect has asynchronous behaviour
-    // localStorage.setItem('shoppinglist',JSON.stringify(items));
-    const fetchItems = async ()=>{
-      try{
-        const response = await fetch(API_URL);
-        if(!response.ok) throw Error('Did not receive expected data');
-        const bloglist = await response.json();
-        setBlogs(bloglist);
-        setFetchError(null);
-      } catch (err){
-        console.log(err.message);
-      } finally{
-        setIsLoading(false);
-      }
-    }
-    setTimeout(()=>{
-      (async ()=> await fetchItems())();
-    },1000)
-  },[])
-
   useEffect(() => {
-    if (loggedIn && location.pathname !== '/dashboard') {
-      navigate('/dashboard'); // Navigate to dashboard if logged in and not already on /dashboard
-    } else if (!loggedIn && location.pathname !== '/') {
-      navigate('/'); // Navigate to login page if not logged in and not already on /
-    }
-  }, [loggedIn, location.pathname, navigate]);
-  
-
-  useEffect(() => {
+    // Reset scroll position on route change
     document.querySelector('html').style.scrollBehavior = 'auto';
     window.scroll({ top: 0 });
     document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]);
-  
 
-  useEffect(() => {
-    if (!loggedIn) {
-      navigate('/');
-    }
-  }, [loggedIn, navigate]);
-  
+ 
 
+  
   return (
     <div>
       <Routes>
         <Route exact path="/" element={<Login />} />
-        <Route path="/dashboard" element={loggedIn ? <Dashboard /> : navigate('/')} />
-        <Route path='/chats' element={<ChatComponent/>} />
-        <Route path="/blog" exact element={<Home/>} />
-        <Route path="/NewPost" element={<NewPost handleAddBlog={handleAddBlog} blogs={blogs} setBlogs={setBlogs} setFetchError={setFetchError}/>} />
-        <Route path="/blog/:id" element={<Blog/>} />
+        <Route path="/dashboard" element={ <Dashboard /> } />
+
+        <Route path='/chats' element={<ChatComponent/>} /> 
       </Routes>
     </div>
   );
