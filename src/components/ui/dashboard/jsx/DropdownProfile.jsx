@@ -33,7 +33,6 @@ function DropdownProfile({
     document.addEventListener('keydown', keyHandler);
     return () => document.removeEventListener('keydown', keyHandler);
   });
-
   return (
     <div className="relative inline-flex">
       <button
@@ -84,8 +83,12 @@ function DropdownProfile({
             <li>
               <Link
                 className="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
-                to="/signin"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                to="/" 
+                onClick={() => {
+                  setDropdownOpen(false); // Close dropdown after signing out
+                  
+                }}
+    
               >
                 Sign Out
               </Link>

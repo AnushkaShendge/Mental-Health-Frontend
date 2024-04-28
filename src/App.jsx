@@ -15,7 +15,6 @@ import NewPost from './components/ui/Blog/Pages/NewPost/NewPost';
 const projectID = '121610f8-3526-459f-8ebd-39ed9a4b79e9';
 
 function App() {
-  const { loggedIn } = useAppState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const [justLoggedIn, setJustLoggedIn] = useState(false); // Variable to track if the user just logged in
