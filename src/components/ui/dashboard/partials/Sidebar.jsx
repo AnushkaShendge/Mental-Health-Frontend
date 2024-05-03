@@ -10,39 +10,51 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const trigger = useRef(null);
   const sidebar = useRef(null);
 
-  const storedSidebarExpanded = localStorage.getItem('sidebar-expanded');
-  const [sidebarExpanded, setSidebarExpanded] = useState(storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true');
+  const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
-  // close on click outside
+  // Define refs for sidebar and trigger elements
+  const sidebarRef = useRef(null);
+  const triggerRef = useRef(null);
+
+  // Function to toggle sidebar state
+  const toggleSidebar = () => {
+    setSidebarExpanded((prevState) => !prevState);
+  };
+
+  // Close sidebar when clicking outside
   useEffect(() => {
     const clickHandler = ({ target }) => {
-      if (!sidebar.current || !trigger.current) return;
-      if (!sidebarOpen || sidebar.current.contains(target) || trigger.current.contains(target)) return;
-      setSidebarOpen(false);
+      if (!sidebarExpanded || !sidebarRef.current || !triggerRef.current) return;
+      if (sidebarRef.current.contains(target) || triggerRef.current.contains(target)) return;
+      setSidebarExpanded(false);
     };
+
     document.addEventListener('click', clickHandler);
     return () => document.removeEventListener('click', clickHandler);
-  });
-
-  // close if the esc key is pressed
-  useEffect(() => {
-    const keyHandler = ({ keyCode }) => {
-      if (!sidebarOpen || keyCode !== 27) return;
-      setSidebarOpen(false);
-    };
-    document.addEventListener('keydown', keyHandler);
-    return () => document.removeEventListener('keydown', keyHandler);
-  });
-
-  useEffect(() => {
-    localStorage.setItem('sidebar-expanded', sidebarExpanded);
-    if (sidebarExpanded) {
-      document.querySelector('body').classList.add('sidebar-expanded');
-    } else {
-      document.querySelector('body').classList.remove('sidebar-expanded');
-    }
   }, [sidebarExpanded]);
 
+  // Close sidebar when Esc key is pressed
+  useEffect(() => {
+    const keyHandler = ({ keyCode }) => {
+      if (keyCode === 27) {
+        setSidebarExpanded(false);
+      }
+    };
+
+    document.addEventListener('keydown', keyHandler);
+    return () => document.removeEventListener('keydown', keyHandler);
+  }, []);
+
+  // Update localStorage and body class based on sidebar state
+  useEffect(() => {
+    localStorage.setItem('sidebar-expanded', JSON.stringify(sidebarExpanded));
+
+    if (sidebarExpanded) {
+      document.body.classList.add('sidebar-expanded');
+    } else {
+      document.body.classList.remove('sidebar-expanded');
+    }
+  }, [sidebarExpanded]);
 
   return (
     <div>
@@ -591,7 +603,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                           <li className="mb-1 last:mb-0">
                             <NavLink
                               end
-                              to="/finance/cards"
+                              to="/mood"
                               className={({ isActive }) =>
                                 'block transition duration-150 truncate ' + (isActive ? 'text-indigo-500' : 'text-slate-400 hover:text-slate-200')
                               }
@@ -615,7 +627,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                             </NavLink>
                           </li>
                           <li className="mb-1 last:mb-0">
-                            <NavLink
+                            <NavLink 
                               end
                               to="/finance/transaction-details"
                               className={({ isActive }) =>

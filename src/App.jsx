@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { AppStateProvider, useAppState } from "./AppStateContext";
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { ChatEngine } from 'react-chat-engine';
@@ -22,17 +22,6 @@ function App() {
   const { loggedIn } = useAppState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const [justLoggedIn, setJustLoggedIn] = useState(false); // Variable to track if the user just logged in
-
-  const API_URL = 'http://localhost:3500/blogs';
-
-  const [blogs, setBlogs] = useState([]);
-  const [fetchError, setFetchError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleAddBlog = (newBlog) => {
-    setBlogs([...blogs, newBlog]); // Add the new blog to the existing array of blogs
-  }
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -77,12 +66,12 @@ function App() {
     window.scroll({ top: 0 });
     document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]);
-
+ 
   useEffect(() => {
     if (loggedIn) {
-      setJustLoggedIn(true); // Set justLoggedIn to true after successful login
+      navigate('/dashboard');
     }
-  }, [loggedIn]);
+  }, [loggedIn, navigate]);
 
   return (
     <div>
