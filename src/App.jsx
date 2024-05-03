@@ -22,9 +22,7 @@ function App() {
     window.scroll({ top: 0 });
     document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]);
-
  
-
   useEffect(() => {
     if (loggedIn) {
       navigate('/dashboard');
