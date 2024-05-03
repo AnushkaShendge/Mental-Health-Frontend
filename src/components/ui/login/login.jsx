@@ -13,8 +13,8 @@ function Login() {
         email: "",
         contact: "",
         dob: "",
-     
         gender: "",
+        emergencyContact:"",
     });
     const [messages, setMessages] = useState([]);
 
@@ -106,13 +106,8 @@ function Login() {
                     isValid = false;
                 }
                 break;
+                
             case 2:
-                if (!input.monthlyIncome) {
-                    addMessage("Monthly income is required");
-                    isValid = false;
-                }
-                break;
-            case 3:
                 if (!input.username) {
                     addMessage("Username cannot be empty");
                     isValid = false;
@@ -125,6 +120,10 @@ function Login() {
 
                 if (!input.confirmPassword) {
                     addMessage("Confirm Password cannot be empty");
+                    isValid = false;
+                }
+                if (!input.emergencyContact) {
+                    addMessage("Emergency contact cannot be empty"); // Check if emergency contact is empty
                     isValid = false;
                 }
 
@@ -278,6 +277,14 @@ function Login() {
                             placeholder="Contact"
                         />
                         <input
+                        type="tel"
+                        className="input"
+                        name="emergencyContact"
+                        value={input.emergencyContact}
+                        onChange={handleInputChange}
+                        placeholder="Emergency Contact"
+                        />
+                        <input
                             type="date"
                             className="input"
                             name="dob"
@@ -308,37 +315,8 @@ function Login() {
                         ))}
                     </div>
                 );
+            
             case 2:
-                return (
-                    <div className="login">
-                        <h1>2 / 3</h1>
-                        <p style={{ color: "turquoise" }}>
-                            Income is used for personalization purposes,{" "}
-                        </p>
-                        <input
-                            type="number"
-                            className="input"
-                            name="monthlyIncome"
-                            value={input.monthlyIncome}
-                            onChange={handleInputChange}
-                            placeholder="Monthly income"
-                        />
-                        <button type="button" className="button" onClick={handleNextStageChange}>
-                            NEXT {">"}
-                        </button>
-                        <button type="button" className="button" onClick={handlePrevStageChange}>
-                            {"<"} PREV
-                        </button>
-                        <button type="button" className="button" onClick={() => setLoginStage(0)}>
-                            CANCEL
-                        </button>
-                        <p style={{ color: "turquoise" }}>User data is protected (lol)</p>
-                        {messages.map((message, index) => (
-                            <p key={index}>{message}</p>
-                        ))}
-                    </div>
-                );
-            case 3:
                 return (
                     <div className="login">
                         <h1>3 / 3</h1>
@@ -380,7 +358,7 @@ function Login() {
                         ))}
                     </div>
                 );
-            case 4:
+            case 3:
                 return (
                     <div className="login">
                         <h1>WELCOME</h1>
@@ -396,7 +374,7 @@ function Login() {
 
     return (
         <>
-            <img src={require("../../../logo.png")} alt="Logo" className="loginlogo" />
+            
             <img
                 src={require("../../../bg1.jpeg")}
                 alt="Logo"

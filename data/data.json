@@ -1,0 +1,144 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "9 Brain Exercises to Sharpen Your Memory and Focus ",
+      "category": "development",
+      "subCategory": [
+        "frontend",
+        "ui/ux",
+        "design"
+      ],
+      "description": "Engaging in brain exercises, such as completing a sudoku puzzle, enhances cognitive abilities, boosts memory, and promotes overall mental well-being. We all experience mental fog occasionally, but factors like stress, aging, inadequate sleep, or an unhealthy lifestyle can intensify this cognitive haze. This can have noticeable effects on memory, problem-solving skills, and overall cognitive function. Engaging in brain-sharpening exercises can boost mental agility and help your brain stay focused and resilient. Here are some well-researched exercises and games to consider. “Approaches to brain health include a well-balanced diet low in fat, low in cholesterol, and high in antioxidants,” says Robert Bender, MD, section chief of the Geriatric and Memory Center at Broadlawns Medical Center in Des Moines, Iowa. Foods high in antioxidants include nuts, fruits (especially berries), veggies, chocolate, and herbs and spices, past research notes.In addition to good nutrition, regular exercise can promote vascular health to help protect brain tissue. Avoiding ruts and boredom is also critical. “The brain wants to learn new things,” says Dr. Bender, adding that some researchers believe people are more vulnerable to dementia when they pay less attention to the things around them. “When the brain is passive, it has a tendency to atrophy,” he adds. Therefore, sedentary and relatively passive activities, such as sitting in front of a TV for hours a day, can be detrimental to brain health over time. Physical exercise can also be particularly beneficial for the brain. In a small study published in September 2018 in the journal Proceedings of the National Academy of Sciences, researchers found that a single 10-minute period of low-intensity pedaling on a stationary bike was associated with increased activity in the brain’s hippocampus, the part of the brain responsible for creating new memories and remembering facts and events.",
+      "authorName": "Harshit",
+      "authorAvatar": "/assets/images/author.jpg",
+      "createdAt": "October 10, 2023",
+      "cover": "/assets/images/brain.png"
+    },
+    {
+      "id": 2,
+      "title": "Yoga For Good Mental Health",
+      "category": "Health",
+      "subCategory": [
+        "Yoga",
+        "Mental Health"
+      ],
+      "description": "Yoga and mental health both are the combination of growing health. Yoga appears to modulate stress response system by reducing perceived stress and anxiety. Though yoga has received less attention in the medical literature it has become increasingly popular in recent decades. HOW YOGA AFFECT ON MENTAL HEALTH? Yogas positive benefits on mental health have made it an important practice tool of psychotherapy. It has been shown to enhance social wellbeing through a sense of belongingness to others, and improve the symptoms of depression, attention deficit and sleep disorders. Yoga is specially a cure to people who have anxiety disorders and so on. It helps in improving the mood, behavior and mindfulness of the people along with that it helps in improving workplace wellbeing an resilience. It benefits extend to adult care giver who experience lower life satisfactions, depression and stress etc. mind and body practices like yoga, meditation, deep breathing and prayer help to reduce stress and improve stress related imbalances. This act as a relaxation response that accompanies these mind and body practices that lead to the value improvements to physical and mental health. YOGA A CHANGE FACTOR FOR PEACEFUL MINDSET. Yoga is one of the changing factors which bring a peaceful and calm mindset. Even having a good time with friends or family is not enough to relax the biology on a cellular level. Even socializing, playing an enjoyable game of tennis or golf, or shopping with a friend is actually a state of biochemical tension. For the body to relax with the nerve a person need to alter body process that shift them biochemically from a state of excitement and tension to a state of calm, deep rest and relaxation. Only deep breathing that accompanies mind body practices like yoga can do this.",
+      "authorName": "Vinayak",
+      "authorAvatar": "https://static.vecteezy.com/system/resources/thumbnails/009/354/852/small_2x/male-portrait-people-profile-perfect-for-social-media-and-business-presentations-user-interface-ux-graphic-and-web-design-applications-and-interfaces-illustration-vector.jpg",
+      "createdAt": "October 10, 2023",
+      "cover": "https://www.mindindia.org/public/uploads/blog/613f36d19b222_tmpphpejwlr6.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Mindfulness: “An Inculcation Of Good Mental Health”",
+      "category": "Mindfulness",
+      "subCategory": [
+        "meditation",
+        "peace"
+      ],
+      "description": "Mindfulness is an integrated, mind-body based approach that helps people to manage their thoughts and feelings and mental health. It allows one in paying attention to the present moment, using techniques like meditation, breathing and yoga. It helps people to become aware of their own body sensations including thoughts and feelings..MINDFULNESS A HEALTHY PRACTICE FOR POSITIVE MENTAL HEALTH:Mindfulness can be practiced by children, youth and adults through online courses and group courses. Group courses run to practice mindfulness in person and in the online courses a person can learn through self directed practices at home. It does not require to be religious or spiritual to be able to practice mindfulness.(2020,Mental Health Foundation). Mindfulness can be useful for people from all different walks of life and the number of areas that mindfulness is being applied to its growing. Mindfulness in the workplace can have number of positive effects. These include a decrease in perceived stress, and an increase in better concentration levels including memory tasks and multi tasking. Mindfulness in workplace could be an effective intervention to target. MINDFULNESS AS A WAY FOR FOCUSING ON PRESENT SITUATION:Mindfulness is the practice of purposely focusing people’s attention on the present moment- and accepting it without judgment. Mindfulness is now examined scientifically and has been found to be a key element in stress reduction and overall happiness.Mindfulness improves well being and increase an individual capacity for mindfulness supports many attitudes that contribute to a satisfied life. Being mindful makes it easier to savor the pleasures in life as they occur, helps them to become fully engaged in activities, and creates a greater capacity to deal with adverse events. It is a important element in treating of a number of problems, including : depression, substance abuse, eating disorders, couples conflicts, anxiety disorders, and obsessive- compulsive disorder.",
+      "authorName": "Jiten",
+      "authorAvatar": "https://cdn.vectorstock.com/i/preview-1x/12/01/guy-wearing-glasses-avatar-vector-44691201.jpg",
+      "createdAt": "October 10, 2023",
+      "cover": "https://www.mindindia.org/public/uploads/blog/613f229bec8b9_tmpphpdr9aws.jpg"
+    },
+    {
+      "id": 4,
+      "title": "ADVENTURE IN YOU",
+      "category": "adventure",
+      "subCategory": [
+        "adrenaline",
+        "stay-fit",
+        "lifestyle"
+      ],
+      "description": "Are You Okay?Are you okay? Ritika asked her friend.‘Yeah, I am fine.’‘It’s just work. It’s been hectic lately.’‘Are you sure that’s it?’‘Yeah. Absolutely’Seems like a normal day to day conversation between two friends. Isn’t it?Quite often than not, people who seem perfectly okay may not be alright in reality. Well, we all have days that aren’t great, when things don’t seem to work out and you don’t exactly find yourself feeling the best.With many of us however, feeling good or bad is not exactly under our control. Even in a joyful moment, you might end up feeling terrible or maybe feel nothing at all. For some people a task as plain and simple as making the bed can seem overwhelming. Needing motivation to make your bed?Too much.But it happens with a lot of people. People like you and me.When does ‘inability to make the bed’ become a problem?Like a real, serious problem.When not only making the bed but getting out of bed seems impossible and extremely challenging. And when the first question that pops in your head is “What am I going to do anyway?”Followed by “I don’t feel like doing anything at all.”",
+      "authorName": "Anushka",
+      "authorAvatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO41_BQAX-UGHiOVtAB1F8fFDk1L7dukMKWLcF52_aYw&s",
+      "createdAt": "October 10, 2023",
+      "cover": "https://www.mindindia.org/public/uploads/blog/60f1255f9845a_tmpphpgcem2z.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Why is it important for people to prioritize their mental care and wellness",
+      "category": "People",
+      "subCategory": [
+        "priorities",
+        "mental care",
+        "wellness"
+      ],
+      "description": "Mental health is an individual’s ability to cope with daily stresses and progress in a positive manner. An individual should be able to enjoy life as it is and be in a good mood. Many people still believe that mental health problems are serious psychological brain disorders. However, anyone can develop mental health problems if they are subjected to excessive stress in their daily lives. It is not a disease, but it can cause anxiety, fear, and depression in some people. Mental wellness is determined by how we respond to problems in stressful situations or events. If ignored and not treated promptly, it can progress to a serious illness.Take up our mental wellness challenge this month and overcome common barriers to ensure we prioritise mental health care. It works best if you start slowly and make consistent progress!Importance of Mental Health Awareness. Mental wellness begins with mental health awareness. Prevention is preferable to cure. It all starts with becoming aware of the problem. As a result, people should be made aware of the significance of mental health. The condition can be detected at any age, but it is most common in adults. The worst part is that half of the population is unaware that their mental health is in jeopardy, and those who are aware are unsure of what to do or who to contact in order to recover. It is critical to be aware of the symptoms and recognise the need for mental health treatment. However, symptoms of mental health issues can vary from person to person, so if you notice any signs of deteriorating mental health, it is best to seek medical advice. You should be aware that mental health care centres near you are easily accessible.",
+      "authorName": "Harshit",
+      "authorAvatar": "/assets/images/author.jpg",
+      "createdAt": "October 10, 2023",
+      "cover": "/assets/images/make-it-personal.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Work life balance",
+      "category": "Balance",
+      "subCategory": [
+        "work",
+        "life",
+        "management"
+      ],
+      "description": "What does work-life balance mean?Work life balance is frequently viewed as a compromise between time spent working and time spent engaging in other, non-work-related activities.This school of thought contends that in an ideal world, we would have time after work to pursue activities that would nourish us personally, whether they were hobbies, time with loved ones, or social interactions.It’s not difficult to describe this concept of “balance,” but what does it actually mean? Is it more than just attending a yoga class once a week?Most importantly, how do you decide what works in a world when the lines between work and home are becoming increasingly blurred?Why is work-life balance essential?People need variety in their time management in order to be healthy and energised over the long term, just like in our meals. We frequently make the mistake of thinking that we can work continuously or that an eight-hour workday translates into an equivalent amount of productivity.That is absolutely untrue, though. According to research, after a certain point, employees really stop producing more, but the toll on their health skyrockets.Workaholics and those who have a hard time taking care of themselves are more likely to experience burnout, weariness, and health problems associated with stress.How to achieve work-life balanceThe truth is that no single prescription will work for everyone.You might need to experiment with the time frame that feels the most pertinent to you.",
+      "authorName": "Harshit",
+      "authorAvatar": "/assets/images/author.jpg",
+      "createdAt": "October 10, 2023",
+      "cover": "/assets/images/Purple-Combination-colors-graphic-design-predictions-1024x576-1024x576.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Embracing the Fresh Start: Spring Cleaning for Mental Health",
+      "category": "Cleaning",
+      "subCategory": [
+        "Mental Health",
+        "Start",
+        "Self Care"
+      ],
+      "description": "As we welcome the vibrant hues of spring, there’s an undeniable sense of renewal in the air. Alongside the blooming flowers and chirping birds, many of us feel a compelling urge to de-clutter and refresh our living spaces. April is Stress Awareness Month, and it’s brought to light the importance of handling our stress and clearing our spaces and minds. While the tradition of spring cleaning may seem like a mere practical chore, its impact extends far beyond organized closets and dust-free shelves. Spring cleaning can be a powerful tool for enhancing our mental health and clarity, fostering emotional well-being, and cultivating a sense of rejuvenation. Let’s delve into how the act of tidying up our minds and surroundings can have profound effects on our mental health. Inviting in Fresh Energy. As we bid farewell to the remnants of winter and welcome the warmth of spring, spring cleaning serves as a ritual of renewal and rebirth. By de-cluttering our living spaces and minds, we allow fresh energy to flow freely. Embrace the opportunity to infuse your home with positivity and vitality, whether through rearranging furniture, adding vibrant plants, or simply opening windows to let in the fresh spring breeze. Allow this season of renewal to inspire a renewed sense of purpose and vitality in your life.",
+      "authorName": "Vaishnavi",
+      "authorAvatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEvxeqx_bIveG_i_JvUY-bDVu8RtrmNNrVvPt3snUdiONARdN-ySzgrkqh_tmn539boHs&usqp=CAU",
+      "createdAt": "October 10, 2023",
+      "cover": "https://www.activeminds.org/wp-content/uploads/2024/03/Spring-Cleaning__1200x535-1200x535.png"
+    },
+    {
+      "id": 8,
+      "title": "Harmonizing Wellness: Music Therapy Tips for Mental Health",
+      "category": "Music",
+      "subCategory": [
+        "music",
+        "wellness",
+        "therapy"
+      ],
+      "description": "In the symphony of life, mental health often plays a leading role. Like a well-conducted orchestra, maintaining harmony within oneself requires a balance of many elements. Music stands as a universal language, and has the power to soothe the mind, uplift the spirit, and facilitate healing. It is important to explore the therapeutic benefits of music and offer practical tips on incorporating it into your mental health regimen. Music therapy is a structured process where a trained therapist utilizes music interventions to address individualized goals within a therapeutic relationship. It’s not just about passively listening to music; it involves active participation, creation, and reflection. Music has the ability to evoke emotions and regulate mood. Listening to calming music can reduce anxiety and stress levels, while upbeat tunes can boost mood and motivation. In the orchestra of life, music therapy is a powerful instrument for promoting mental health and well-being. Whether you’re listening to a familiar melody, strumming a guitar, or singing your heart out, music has the remarkable ability to heal, inspire, and connect us with ourselves and others. Incorporate these music therapy tips into your daily routine, and let the harmonious sounds guide you toward a healthier, more balanced life.",
+      "authorName": "Alpha",
+      "authorAvatar": "https://cdn.vectorstock.com/i/preview-1x/57/16/female-character-people-profile-perfect-vector-43335716.jpg",
+      "createdAt": "October 10, 2023",
+      "cover": "https://www.activeminds.org/wp-content/uploads/2024/04/Music-Therapy_1200x535.png"
+    },
+    {
+      "id": 9,
+      "title": "No Light Without Darkness",
+      "category": "Positivity",
+      "subCategory": "Good thoughts",
+      "description": "As many may feel, self-care is not about conforming to society’s standards. Self-care requires honoring your own needs and values, even if it doesn’t reflect other’s own self-care practices, whatever they may be. One of the most transformative moments in my ongoing self-care journey occurred when I allowed myself to be vulnerable and ask for help when I needed it most. Upon connecting with friends, family, and mental health professionals, I was met with love, understanding, and acceptance — a refreshing relief. It was through these same connections that I discovered the power that community plays in self-care. Today, as I near the end of my college experience and transition into post-graduate life, my approach to self-care is extremely open-ended. Though it’s not always Instagram-worthy, it’s real. I’ve learned to embrace what makes me feel good through life’s ups and downs. In sharing my story, I hope to shed light on whate No one should be able to tell you what self-care should or shouldn’t look like– that part is entirely up to you to determine. At the baseline, self-care is about showing ourselves the same love and kindness we would offer our peers in a time of need. So, wherever you are on your own self-care journey, know that you are not alone! You are worthy of love and self-compassion in whichever ways you choose to embrace your humanity.",
+      "authorName": "Aashay",
+      "authorAvatar": "https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg",
+      "createdAt": "April 28, 2024 12:27:23 AM",
+      "cover": "https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630"
+    },
+    {
+      "id": 10,
+      "title": "Anxiety: What Is Anxiety and its Causes, Symptoms & Types",
+      "category": "Mental Health",
+      "subCategory": "Anxiety",
+      "description": "Anxiety is one of the most prevalent mental illnesses and is observed in many forms and intensities. Understanding its nature, causes and symptoms can help you gain an upper hand in your battle with anxiety.\n\nAnxiety disorders are the most commonly occurring mental illness. In fact, over 3.8 crore Indians are struggling with anxiety disorders. The American Psychological Association (APA) defines anxiety as “an emotion characterized by feelings of tension, worried thoughts and physical changes like increased blood pressure”. Though a little anxiety is a perfectly natural response to stimuli that we might deem “unsafe”, disproportionately high or persistent levels of anxiety can be highly distressing. If this feeling of anxiety reaches extreme levels for a period over six months and interferes with your day-to-day functioning or decreases the quality of your life, you are likely to be suffering from an anxiety disorder.\n\nWhat causes Anxiety?\n\nThe causes of anxiety vary from person to person and may depend on age, occupation, family history and other social and environmental factors. For instance, the greater fear of not succeeding in the highly competitive modern markets is strongly correlated with Millenials. For older generations, the lack of social support or meaningful friendships in old age can be a cause of distress and hence are more prone to alarming levels of anxiety. However, there are still many general causes of anxiety:\n\nEnvironmental Factors: Stress at work, unstable relationships, or family issues\nGenetic Factors: Individuals with a family history of anxiety disorders are more prone to developing anxiety disorders\nMedical Factors: Anxiety can manifest as a symptom of a medical condition, or as a side-effect of certain medications\nBiological Factors: Anxiety can also be caused due to a misalignment of hormones in the brain\n\n\nWhat are the symptoms of Anxiety?\n\nWhile anxiety is used to describe a group of anxiety disorders, referred to as generalized anxiety disorder (GAD), the symptoms of anxiety disorders often include the following:\n\nRestlessness, and feeling “on-the-edge”\nUncontrollable feelings of worry\nIncreased irritability\nDifficulties in concentrating\nDifficulty falling or staying asleep\nWhat are the different types of Anxiety?\n\nUnderstanding what type of anxiety disorder you are dealing with could go a long way in helping you find the right help.\n\nGeneralized Anxiety Disorder, or GAD, is a chronic disorder where a person experiences excessive, long-lasting anxiety and worries without any specific trigger\n\nSymptoms for a Panic Disorder include brief or sudden attacks of intense terror and apprehension, known as panic attacks. Other consequent physical symptoms may include shaking, confusion, dizziness, nausea, and breathing difficulties that may escalate rapidly and peak within a few minutes\n\nOne might also develop a specific Phobia, which is an irrational fear towards a certain situation or object. The difference between a phobia and otheranxiety disorders is that phobias have a specific trigger. Social Anxiety Disorder or Social Phobia is rooted in the overwhelming fear of negative judgment from others or of public embarrassment. Commonly observed manifestations of Social Anxiety Disorder include stage fright, a fear of intimacy, and the fear of rejection. As a result of this, avoidance of social situations can start interfering with day-to-day activities.",
+      "authorName": "Aparna",
+      "createdAt": "April 28, 2024 12:47:59 AM",
+      "cover": "https://heartitout.in/links/wp-content/uploads/2023/01/Group-27096.png",
+      "authorAvatar": "https://static.vecteezy.com/system/resources/previews/029/271/069/original/avatar-profile-icon-in-flat-style-female-user-profile-illustration-on-isolated-background-women-profile-sign-business-concept-vector.jpg"
+    }
+  ]
+}
