@@ -11,6 +11,8 @@ const MoodSelection = () => {
     'Fearful', 'Very Happy', 'Suicidal', 'Lazy', 'Dull'
   ];
 
+  let moodChart; // Declare a variable to store Chart instance
+
   useEffect(() => {
     const fetchMoodData = async () => {
       try {
@@ -30,7 +32,12 @@ const MoodSelection = () => {
 
   const handleSubmit = async () => {
     try {
-      await axios.post('http://localhost:8000/moods', { mood: selectedMood });
+      const token = sessionStorage.getItem('token');
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      };
+      await axios.post('http://localhost:8000/moods/', { mood: selectedMood, user:"test" }, { headers });
       alert('Mood recorded successfully');
       // Update mood data after submission
       const response = await axios.get('http://localhost:8000/moods/weekly/');
@@ -41,31 +48,28 @@ const MoodSelection = () => {
     }
   };
 
-  // Plot graph when mood data changes
-  useEffect(() => {
-    if (Object.keys(moodData).length > 0) {
-      plotGraph();
-    }
-  }, [moodData]);
-
   const plotGraph = () => {
     const ctx = document.getElementById('moodChart');
     if (ctx) {
-      const daysOfWeek = Object.keys(moodData);
-      const moodCounts = Object.values(moodData);
+      if (moodChart) {
+        moodChart.destroy(); // Destroy existing Chart instance
+      }
+
+      const weeks = Object.keys(moodData);
+      const weeklyMoods = Object.values(moodData);
 
       const chartData = {
-        labels: daysOfWeek,
+        labels: weeks,
         datasets: moodOptions.map(mood => ({
           label: mood,
-          data: daysOfWeek.map(day => moodCounts[day]?.[mood] || 0),
+          data: weeks.map((week, index) => weeklyMoods[index]?.[mood] || 0),
           backgroundColor: 'rgba(75, 192, 192, 0.2)', // Customize colors as needed
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 1,
         })),
       };
 
-      new Chart(ctx, {
+      moodChart = new Chart(ctx, {
         type: 'bar',
         data: chartData,
         options: {
@@ -78,6 +82,12 @@ const MoodSelection = () => {
       });
     }
   };
+
+  useEffect(() => {
+    if (Object.keys(moodData).length > 0) {
+      plotGraph();
+    }
+  }, [moodData]);
 
   return (
     <div className="mood-selection">
@@ -99,6 +109,23 @@ const MoodSelection = () => {
         ))}
       </ul>
       <button onClick={handleSubmit} disabled={disabled}>Submit</button>
+      <div className="mood-data">
+        <h3>Mood Data:</h3>
+        <ul>
+          {Object.entries(moodData).map(([day, moodCounts]) => (
+            <li key={day}>
+              <strong>{day}:</strong>
+              <ul>
+                {Object.entries(moodCounts).map(([mood, count]) => (
+                  <li key={mood}>
+                    {mood}: {count}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
       <canvas id="moodChart" width="400" height="400"></canvas>
     </div>
   );

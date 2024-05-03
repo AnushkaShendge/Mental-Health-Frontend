@@ -11,6 +11,10 @@ import Login from "./components/ui/login/login";
 import { Home } from "./components/ui/Blog/Pages/Home";
 import { Blog } from "./components/ui/Blog/Pages/Blog";
 import NewPost from './components/ui/Blog/Pages/NewPost/NewPost';
+import HomeLanding from "./components/ui/landingPage/Components/AllComponents/HomeLanding";
+import ThemeContext from "./components/ui/landingPage/Components/ContextWrapper/ThemeContext";
+import "./index.css";
+import "./App.css"
 
 const projectID = '121610f8-3526-459f-8ebd-39ed9a4b79e9';
 
@@ -50,13 +54,23 @@ function App() {
 
   }, [])
 
+  // useEffect(() => {
+  //   if (loggedIn && !justLoggedIn) { // Redirect to dashboard only if logged in and not just logged in
+  //     navigate('/dashboard');
+  //   } else if (!loggedIn) {
+  //     navigate('/'); // Navigate to login page if not logged in
+  //   }
+  // }, [loggedIn, justLoggedIn, navigate]);
   useEffect(() => {
-    if (loggedIn && !justLoggedIn) { // Redirect to dashboard only if logged in and not just logged in
-      navigate('/dashboard');
-    } else if (!loggedIn) {
-      navigate('/'); // Navigate to login page if not logged in
+    if (!justLoggedIn && loggedIn !== undefined) {
+      if (loggedIn) {
+        navigate('/dashboard');
+      } else {
+        navigate('/');
+      }
     }
   }, [loggedIn, justLoggedIn, navigate]);
+  
 
   useEffect(() => {
     document.querySelector('html').style.scrollBehavior = 'auto';
@@ -73,7 +87,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<Login />} />
+       <Route path="/" element={<ThemeContext><HomeLanding/></ThemeContext>} />
         <Route path="/dashboard" element={loggedIn ? <Dashboard /> : navigate('/')} />
         <Route path='/chats' element={<ChatComponent />} />
         <Route path="/blog" exact element={<Home />} />
