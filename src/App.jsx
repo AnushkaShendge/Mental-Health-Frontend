@@ -52,23 +52,6 @@ function App() {
     }, 1000);
 
   }, [])
-
-  useEffect(() => {
-    if (loggedIn && !justLoggedIn) { // Redirect to dashboard only if logged in and not just logged in
-      navigate('/dashboard');
-    } else if (!loggedIn) {
-      navigate('/'); // Navigate to login page if not logged in
-    }
-  }, [loggedIn, justLoggedIn, navigate]);
-  useEffect(() => {
-    if (!justLoggedIn && loggedIn !== undefined) {
-      if (loggedIn) {
-        navigate('/dashboard');
-      } else {
-        navigate('/');
-      }
-    }
-  }, [loggedIn, justLoggedIn, navigate]);
   
 
   useEffect(() => {
@@ -77,18 +60,14 @@ function App() {
     document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]);
  
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //     navigate('/dashboard');
-  //   }
-    
-  // }, [loggedIn, navigate]);
-
+  if(loggedIn){
+    navigate('/dashboard')
+  }
   return (
     <div>
       <Routes>
        <Route path="/" element={<ThemeContext><HomeLanding/></ThemeContext>} />
-        <Route path="/dashboard" element={loggedIn ? <Dashboard /> : navigate('/')} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path='/chats' element={<ChatComponent />} />
         <Route path="/blog" exact element={<Home />} />
