@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
-import header1 from "../../assets/images/headerImage.png";
+import header1 from "../../../../../assets/images/headerImage.png";
 import { Switch } from "@material-tailwind/react";
 import { ThemeBgContext } from "../ContextWrapper/ThemeContext";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ topRef }) => {
   const { theme, handleTheme } = useContext(ThemeBgContext);
+  const navigate = useNavigate();
 
   return (
     <div ref={topRef} className="mx-auto pt-16">
@@ -12,7 +14,7 @@ const Header = ({ topRef }) => {
         <div className="sm:w-full sm:pl-4 w-4/5 pl-24">
           <Switch
             label={theme === "light" ? "Switch to Dark" : "Switch to Light"}
-            defaultChecked={theme === "dark" ? true : false}
+            defaultChecked={theme === "dark"}
             onClick={handleTheme}
           />
           <h1
@@ -42,14 +44,14 @@ const Header = ({ topRef }) => {
                   : "sm:text-lg w-4/5 font-inter font-medium no-underline align-middle tracking-wide normal-case text-white text-2xl"
               }
             >
-              Giving your home a propper makeover never was this easy. Modern
-              and stylish furniture for decent prices. Take a look what we offer
-              with simple button click.
+              Giving your home a proper makeover never was this easy. Modern
+              and stylish furniture for decent prices. Take a look at what we offer
+              with a simple button click.
             </p>
           </div>
           <div className="pb-20">
-            <button className="pushable mt-4">
-              <span className="front">Start now</span>
+            <button className="pushable mt-4" onClick={() => navigate("/login")}>
+              <span className="front">Get Started</span>
             </button>
           </div>
         </div>
@@ -69,7 +71,7 @@ const Header = ({ topRef }) => {
             className="sm:h-[475px] h-[765px] w-full bg-no-repeat bg-center relative z-10 header rounded-xl"
             src={header1}
             alt="header-phone"
-          ></img>
+          />
         </div>
       </div>
     </div>

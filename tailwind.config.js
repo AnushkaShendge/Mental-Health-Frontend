@@ -2,10 +2,12 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    './pages/**/*.{js,jsx,ts,tsx}',
+    // './src/components/**/**/**/**/*.{js,jsx,ts,tsx,svg}', //C:\Users\Aniket\Desktop\timepass2\src\components\ui\landingPage\assets\images\wrapperBackground.svg
+    './app/**/*.{js,jsx,ts,tsx}',
+      // './src/css/*.{js,jsx,ts,tsx,svg}',
+    './src/**/*.{js,jsx,ts,tsx,svg}', // Ensure you include all possible extensions
+    // './src/*.{svg}'
   ],
   prefix: "",
   theme: {
@@ -71,7 +73,37 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: { //C:\Users\Aniket\Desktop\timepass2\src\components\ui\landingPage\assets\images\wrapperBackground.svg
+        wrapperBg: "url('img/wrapperBackground.svg')", // Corrected pathsrc\components\ui\landingPage\assets\images\wrapperBackground.svg
+        wrapperDark: "url('img/wrapperDark.svg')",  // Corrected path
+      },
+      container: {
+        screens: {
+          sm: "640px",
+          md: "767px",
+          lg: "1140px",
+          xl: "1400px",
+          "2xl": "1800px",
+        },
+      },
+      screens: {
+        "2xl": { max: "1535px" },
+        // => @media (max-width: 1535px) { ... }
+        xl: { max: "1279px" },
+        // => @media (max-width: 1279px) { ... }
+        lg: { max: "1023px" },
+        // => @media (max-width: 1023px) { ... }
+        md: { max: "767px" },
+        // => @media (max-width: 767px) { ... }
+        sm: { max: "639px" },
+        // => @media (max-width: 639px) { ... }
+      },
+      fontFamily: {
+        inter: ["Inter"],
+        petitFormal: ["Petit Formal Script"],
+        russonOne: ["Russon One"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState } from 'react';
 import { AppStateProvider, useAppState } from "./AppStateContext";
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { ChatEngine } from 'react-chat-engine';
 import Dashboard from './components/ui/dashboard/pages/Dashboard';
 import ChatFeed from './components/ui/ChatPage/ChatFeed';
 import LoginForm from './components/ui/ChatPage/LoginForm';
-import './components/ui/dashboard/css/style.css';
+import './style.css'
 import './components/ui/ChatPage/ChatPage.css';
 import Login from "./components/ui/login/login";
 import { Home } from "./components/ui/Blog/Pages/Home";
@@ -13,7 +13,7 @@ import { Blog } from "./components/ui/Blog/Pages/Blog";
 import NewPost from './components/ui/Blog/Pages/NewPost/NewPost';
 import HomeLanding from "./components/ui/landingPage/Components/AllComponents/HomeLanding";
 import ThemeContext from "./components/ui/landingPage/Components/ContextWrapper/ThemeContext";
-import "./index.css";
+import './output.css'
 import "./App.css"
 
 const projectID = '121610f8-3526-459f-8ebd-39ed9a4b79e9';
@@ -22,7 +22,17 @@ function App() {
   const { loggedIn } = useAppState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const [justLoggedIn, setJustLoggedIn] = useState(false); // Variable to track if the user just logged in
 
+  const API_URL = 'http://localhost:3500/blogs';
+
+  const [blogs, setBlogs] = useState([]);
+  const [fetchError, setFetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleAddBlog = (newBlog) => {
+    setBlogs([...blogs, newBlog]); // Add the new blog to the existing array of blogs
+  }
   useEffect(() => {
     const fetchItems = async () => {
       try {
@@ -43,13 +53,13 @@ function App() {
 
   }, [])
 
-  // useEffect(() => {
-  //   if (loggedIn && !justLoggedIn) { // Redirect to dashboard only if logged in and not just logged in
-  //     navigate('/dashboard');
-  //   } else if (!loggedIn) {
-  //     navigate('/'); // Navigate to login page if not logged in
-  //   }
-  // }, [loggedIn, justLoggedIn, navigate]);
+  useEffect(() => {
+    if (loggedIn && !justLoggedIn) { // Redirect to dashboard only if logged in and not just logged in
+      navigate('/dashboard');
+    } else if (!loggedIn) {
+      navigate('/'); // Navigate to login page if not logged in
+    }
+  }, [loggedIn, justLoggedIn, navigate]);
   useEffect(() => {
     if (!justLoggedIn && loggedIn !== undefined) {
       if (loggedIn) {
@@ -67,17 +77,19 @@ function App() {
     document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]);
  
-  useEffect(() => {
-    if (loggedIn) {
-      navigate('/dashboard');
-    }
-  }, [loggedIn, navigate]);
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //     navigate('/dashboard');
+  //   }
+    
+  // }, [loggedIn, navigate]);
 
   return (
     <div>
       <Routes>
        <Route path="/" element={<ThemeContext><HomeLanding/></ThemeContext>} />
         <Route path="/dashboard" element={loggedIn ? <Dashboard /> : navigate('/')} />
+        <Route path="/login" element={<Login />} />
         <Route path='/chats' element={<ChatComponent />} />
         <Route path="/blog" exact element={<Home />} />
         <Route path="/NewPost" element={<NewPost handleAddBlog={handleAddBlog} blogs={blogs} setBlogs={setBlogs} setFetchError={setFetchError} />} />

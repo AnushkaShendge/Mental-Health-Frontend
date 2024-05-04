@@ -1,8 +1,8 @@
-import chair from "../assets/images/chairPurple.png";
-import sofa2 from "../assets/images/roseChair.png";
-import sofa3 from "../assets/images/gray-chair.png";
-import phone1 from "../assets/images/bedRoom.png";
-import blueSofa from "../assets/images/blueSofa.png";
+import chair from "../../../../assets/images/chairPurple.png";
+import sofa2 from "../../../../assets/images/roseChair.png";
+import sofa3 from "../../../../assets/images/gray-chair.png";
+import phone1 from "../../../../assets/images/bedRoom.png";
+import blueSofa from "../../../../assets/images/blueSofa.png";
 
 export const navbarData = [
   {
