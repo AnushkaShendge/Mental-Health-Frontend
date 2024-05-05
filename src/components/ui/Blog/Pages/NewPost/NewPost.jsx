@@ -30,7 +30,7 @@ const NewPost = ({ handleAddBlog, blogs, setBlogs, setFetchError }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = blogs.length ? blogs[blogs.length - 1].id + 1 : 1;
+    const id = blogs.length ? (parseInt(blogs[blogs.length - 1].id) + 1).toString() : "1";
     const datetime = format(new Date(), 'MMMM dd, yyyy pp');
     const newBlog = {
       id: id,
@@ -140,4 +140,4 @@ const NewPost = ({ handleAddBlog, blogs, setBlogs, setFetchError }) => {
   );
 }
 
-export default NewPost;
+export default NewPost;

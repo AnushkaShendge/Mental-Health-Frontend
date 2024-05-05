@@ -1,58 +1,46 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, useLocation  } from 'react-router-dom';
+import { NavLink, useLocation , useNavigate } from 'react-router-dom';
 
 import SidebarLinkGroup from './SidebarLinkGroup';
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
+  const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
 
   const trigger = useRef(null);
   const sidebar = useRef(null);
 
-  const [sidebarExpanded, setSidebarExpanded] = useState(false);
+  const storedSidebarExpanded = localStorage.getItem('sidebar-expanded');
+  const [sidebarExpanded, setSidebarExpanded] = useState(storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true');
 
-  // Define refs for sidebar and trigger elements
-  const sidebarRef = useRef(null);
-  const triggerRef = useRef(null);
-
-  // Function to toggle sidebar state
-  const toggleSidebar = () => {
-    setSidebarExpanded((prevState) => !prevState);
-  };
-
-  // Close sidebar when clicking outside
+  // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }) => {
-      if (!sidebarExpanded || !sidebarRef.current || !triggerRef.current) return;
-      if (sidebarRef.current.contains(target) || triggerRef.current.contains(target)) return;
-      setSidebarExpanded(false);
+      if (!sidebar.current || !trigger.current) return;
+      if (!sidebarOpen || sidebar.current.contains(target) || trigger.current.contains(target)) return;
+      setSidebarOpen(false);
     };
-
     document.addEventListener('click', clickHandler);
     return () => document.removeEventListener('click', clickHandler);
-  }, [sidebarExpanded]);
+  });
 
-  // Close sidebar when Esc key is pressed
+  // close if the esc key is pressed
   useEffect(() => {
     const keyHandler = ({ keyCode }) => {
-      if (keyCode === 27) {
-        setSidebarExpanded(false);
-      }
+      if (!sidebarOpen || keyCode !== 27) return;
+      setSidebarOpen(false);
     };
-
     document.addEventListener('keydown', keyHandler);
     return () => document.removeEventListener('keydown', keyHandler);
-  }, []);
+  });
 
-  // Update localStorage and body class based on sidebar state
   useEffect(() => {
-    localStorage.setItem('sidebar-expanded', JSON.stringify(sidebarExpanded));
-
+    localStorage.setItem('sidebar-expanded', sidebarExpanded);
     if (sidebarExpanded) {
-      document.body.classList.add('sidebar-expanded');
+      document.querySelector('body').classList.add('sidebar-expanded');
     } else {
-      document.body.classList.remove('sidebar-expanded');
+      document.querySelector('body').classList.remove('sidebar-expanded');
     }
   }, [sidebarExpanded]);
 
@@ -410,13 +398,13 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                   return (
                     <React.Fragment>
                       <a
-                        href="#0"
+                        href="/chats"
                         className={`block text-slate-200 truncate transition duration-150 ${
                           pathname.includes('community') ? 'hover:text-slate-200' : 'hover:text-white'
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
-                          sidebarExpanded ? handleClick() : setSidebarExpanded(true);
+                          sidebarExpanded ? handleClick(() => navigate('/chats')) : setSidebarExpanded(true);
                         }}
                       >
                         <div className="flex items-center justify-between">
@@ -603,7 +591,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                           <li className="mb-1 last:mb-0">
                             <NavLink
                               end
-                              to="/mood"
+                              to="/finance/cards"
                               className={({ isActive }) =>
                                 'block transition duration-150 truncate ' + (isActive ? 'text-indigo-500' : 'text-slate-400 hover:text-slate-200')
                               }
@@ -627,7 +615,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                             </NavLink>
                           </li>
                           <li className="mb-1 last:mb-0">
-                            <NavLink 
+                            <NavLink
                               end
                               to="/finance/transaction-details"
                               className={({ isActive }) =>
@@ -834,7 +822,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         />
                       </svg>
                       <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                        Messages
+                        Blogs
                       </span>
                     </div>
                     {/* Badge */}

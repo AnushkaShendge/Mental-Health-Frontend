@@ -1,19 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Transition from '../utils/Transition';
+import { useAppState } from '../../../../AppStateContext'; // Import the context
 
 import UserAvatar from '../images/user-avatar-32.png';
 
-function DropdownProfile({
-  align},{username}
-) {
-
+function DropdownProfile({ align, username }) {
+  const { setLoggedIn } = useAppState(); // Access the context's setter function
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
 
-  // close on click outside
+  // Close on click outside
   useEffect(() => {
     const clickHandler = ({ target }) => {
       if (!dropdown.current) return;
@@ -24,7 +23,7 @@ function DropdownProfile({
     return () => document.removeEventListener('click', clickHandler);
   });
 
-  // close if the esc key is pressed
+  // Close if the esc key is pressed
   useEffect(() => {
     const keyHandler = ({ keyCode }) => {
       if (!dropdownOpen || keyCode !== 27) return;
@@ -33,6 +32,7 @@ function DropdownProfile({
     document.addEventListener('keydown', keyHandler);
     return () => document.removeEventListener('keydown', keyHandler);
   });
+
   return (
     <div className="relative inline-flex">
       <button
@@ -42,7 +42,7 @@ function DropdownProfile({
         onClick={() => setDropdownOpen(!dropdownOpen)}
         aria-expanded={dropdownOpen}
       >
-        <img className="w-8 h-8 rounded-full" src={UserAvatar} width="32" height="32" alt="User" />
+        <img className="w-8 h-8 rounded-full" src={UserAvatar} alt="User" />
         <div className="flex items-center truncate">
           <span className="truncate ml-2 text-sm font-medium dark:text-slate-300 group-hover:text-slate-800 dark:group-hover:text-slate-200">{username}</span>
           <svg className="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400" viewBox="0 0 12 12">
@@ -68,7 +68,7 @@ function DropdownProfile({
         >
           <div className="pt-0.5 pb-2 px-3 mb-1 border-b border-slate-200 dark:border-slate-700">
             <div className="font-medium text-slate-800 dark:text-slate-100">{username}</div>
-            <div className="text-xs text-slate-500 dark:text-slate-400 italic">User</div>
+            <div class="text-xs text-slate-500 dark:text-slate-400 italic">User</div>
           </div>
           <ul>
             <li>
@@ -83,12 +83,13 @@ function DropdownProfile({
             <li>
               <Link
                 className="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
-                to="/" 
+                to="/"
                 onClick={() => {
-                  setDropdownOpen(false); // Close dropdown after signing out
-                  
+                  setDropdownOpen(false); // Close dropdown
+                  setLoggedIn(false); // Set loggedIn to false
+                  sessionStorage.clear(); // Clear session storage
+                  localStorage.clear(); // Optional: Clear local storage
                 }}
-    
               >
                 Sign Out
               </Link>
@@ -97,7 +98,7 @@ function DropdownProfile({
         </div>
       </Transition>
     </div>
-  )
+  );
 }
 
 export default DropdownProfile;

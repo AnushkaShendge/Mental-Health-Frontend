@@ -19,7 +19,7 @@ import "./App.css"
 const projectID = '121610f8-3526-459f-8ebd-39ed9a4b79e9';
 
 function App() {
-  const { loggedIn } = useAppState(false);
+  const { loggedIn } = useAppState();
   const location = useLocation();
   const navigate = useNavigate();
   const [justLoggedIn, setJustLoggedIn] = useState(false); // Variable to track if the user just logged in
@@ -59,18 +59,21 @@ function App() {
     window.scroll({ top: 0 });
     document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]);
- 
-  if(loggedIn){
-    navigate('/dashboard')
-  }
+  
+  // useEffect(() => {
+  //   if (!loggedIn) {
+  //   } else {
+  //     navigate('/dashboard') // Navigate to the dashboard if logged in
+  //   }
+  // }, [loggedIn, navigate]);
   return (
     <div>
       <Routes>
        <Route path="/" element={<ThemeContext><HomeLanding/></ThemeContext>} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path='/chats' element={<ChatComponent />} />
-        <Route path="/blog" exact element={<Home />} />
+        <Route path="/dashboard" element={(loggedIn) ? <Dashboard/> : <Login/>}  />
+        <Route path="/login" element={<Login/>} />
+        <Route path='/chats' element={(loggedIn) ? <LoginForm/> : <Login/>} />
+        <Route path="/blog" exact element={(loggedIn) ? <Home/> : <Login/>} />
         <Route path="/NewPost" element={<NewPost handleAddBlog={handleAddBlog} blogs={blogs} setBlogs={setBlogs} setFetchError={setFetchError} />} />
         <Route path="/blog/:id" element={<Blog />} />
       </Routes>

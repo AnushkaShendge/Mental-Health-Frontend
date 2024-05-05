@@ -3,7 +3,7 @@ module.exports = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{js,jsx,ts,tsx}',
-    // './src/components/**/**/**/**/*.{js,jsx,ts,tsx,svg}', //C:\Users\Aniket\Desktop\timepass2\src\components\ui\landingPage\assets\images\wrapperBackground.svg
+    './src/components/**/**/**/**/*.{js,jsx,ts,tsx,svg}', //C:\Users\Aniket\Desktop\timepass2\src\components\ui\landingPage\assets\images\wrapperBackground.svg
     './app/**/*.{js,jsx,ts,tsx}',
       // './src/css/*.{js,jsx,ts,tsx,svg}',
     './src/**/*.{js,jsx,ts,tsx,svg}', // Ensure you include all possible extensions

@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useAppState } from "../../../AppStateContext";
 import axios from "axios";
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const { setLoggedIn } = useAppState();
+    const navigate = useNavigate();
     const [loginStage, setLoginStage] = useState(0);
     const [input, setInput] = useState({
         username: "",
@@ -201,6 +203,7 @@ function Login() {
                 console.log(sessionStorage.getItem('token'));   
                 addTokenInterceptor(sessionStorage.getItem('token'));
                 setLoggedIn(true);
+                navigate('/dashboard')
             } else {
                 setMessages([response.data.message || "Server error"]);
             }
