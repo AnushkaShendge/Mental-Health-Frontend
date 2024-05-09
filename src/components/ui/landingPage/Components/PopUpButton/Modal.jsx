@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Tooltip } from "@material-tailwind/react";
+import axios from "axios";
 
 const Modal = ({ open, setOpen }) => {
   const [message, setMessage] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log(message);
-    setMessage("");
-    setOpen(false);
+    try {
+      const response = await axios.post("http://localhost:8000/chatbot", {
+        message: message
+      });
+
+      console.log(response.data); 
+      setMessage(""); 
+      setOpen(false); 
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
+  
   return (
     <div>
       <motion.div
@@ -49,6 +59,7 @@ const Modal = ({ open, setOpen }) => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               ></input>
+              <button type="submit">Submit</button>
             </form>
           </div>
           <Tooltip content="Close" placement="left">

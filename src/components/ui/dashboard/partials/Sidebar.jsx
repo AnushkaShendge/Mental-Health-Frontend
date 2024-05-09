@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, useLocation , useNavigate } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import SidebarLinkGroup from './SidebarLinkGroup';
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
-  const navigate = useNavigate();
+  const [expanded, setExpanded] = useState(false);
   const location = useLocation();
   const { pathname } = location;
 
@@ -398,13 +398,13 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                   return (
                     <React.Fragment>
                       <a
-                        href="/chats"
+                        href="#0"
                         className={`block text-slate-200 truncate transition duration-150 ${
                           pathname.includes('community') ? 'hover:text-slate-200' : 'hover:text-white'
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
-                          sidebarExpanded ? handleClick(() => navigate('/chats')) : setSidebarExpanded(true);
+                          sidebarExpanded ? handleClick() : setSidebarExpanded(true);
                         }}
                       >
                         <div className="flex items-center justify-between">
@@ -804,7 +804,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
               <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${pathname.includes('messages') && 'bg-slate-900'}`}>
                 <NavLink
                   end
-                  to="/blog"
+                  to="/messages"
                   className={`block text-slate-200 truncate transition duration-150 ${
                     pathname.includes('messages') ? 'hover:text-slate-200' : 'hover:text-white'
                   }`}
@@ -822,7 +822,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         />
                       </svg>
                       <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                        Blogs
+                        Messages
                       </span>
                     </div>
                     {/* Badge */}
