@@ -19,7 +19,10 @@ import DashboardCard10 from '../partials/DashBoard/DashboardCard10';
 import DashboardCard11 from '../partials/DashBoard/DashboardCard11';
 import DashboardCard12 from '../partials/DashBoard/DashboardCard12';
 import DashboardCard13 from '../partials/DashBoard/DashboardCard13';
+import DashboardCard14 from '../partials/DashBoard/DashboardCard14';
+import DashboardCard15 from '../partials/DashBoard/DashboardCard15';
 import Banner from '../partials/Banner';
+import './Dashboard.css'
 
 function Dashboard() {
   const username = sessionStorage.getItem('username');
@@ -27,17 +30,23 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
+    const hasVisitedDashboard = sessionStorage.getItem('hasVisitedDashboard');
+
+    if (!hasVisitedDashboard) {
+      setLoading(true);
+
+      setTimeout(() => {
+
+        setLoading(false);
+        sessionStorage.setItem('hasVisitedDashboard', 'true');
+      }, 5000);
+    } else {
+    
       setLoading(false);
-    }, 5000);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []); // Empty dependency array ensures useEffect runs only on mount
-
+    }
+  }, []);
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden cards">
       {loading ? (
         <div className="flex items-center justify-center w-full h-full">
           <video autoPlay loop muted className="w-full">
@@ -82,11 +91,38 @@ function Dashboard() {
                 </div>
 
                 {/* Cards */}
-                <div className="grid grid-cols-12 gap-6">
-                  <DashboardCard01 />
-                  <DashboardCard02 />
-                  <DashboardCard03 />
-                  <DashboardCard04 />
+                <div className="group grid grid-cols-12 gap-6">
+                  <div className=" box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                    <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 shadow rounded-lg">
+                      <DashboardCard01 />
+                    </div>
+                  </div>
+                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                  <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg">
+                    <DashboardCard02 />
+                  </div>
+                </div>
+                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                  <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg">
+                    <DashboardCard03 />
+                  </div>
+                </div>
+                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                  <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg">
+                    <DashboardCard04 />
+                  </div>
+                </div>
+                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                  <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg ">
+                    <DashboardCard14 />
+                  </div>
+                </div>
+                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                  <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg ">
+                    <DashboardCard15 />
+                  </div>
+                </div>
+
                   <DashboardCard05 />
                   <DashboardCard06 />
                   <DashboardCard07 />

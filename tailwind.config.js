@@ -1,7 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
 module.exports = {
   darkMode: ["class"],
   content: [
+    './index.html',
     './pages/**/*.{js,jsx,ts,tsx}',
     './src/components/**/**/**/**/*.{js,jsx,ts,tsx,svg}', //C:\Users\Aniket\Desktop\timepass2\src\components\ui\landingPage\assets\images\wrapperBackground.svg
     './app/**/*.{js,jsx,ts,tsx}',
@@ -83,6 +85,7 @@ module.exports = {
           md: "767px",
           lg: "1140px",
           xl: "1400px",
+          xs: '480px',
           "2xl": "1800px",
         },
       },
@@ -97,13 +100,38 @@ module.exports = {
         // => @media (max-width: 767px) { ... }
         sm: { max: "639px" },
         // => @media (max-width: 639px) { ... }
+        xs: '480px',
       },
       fontFamily: {
         inter: ["Inter"],
         petitFormal: ["Petit Formal Script"],
         russonOne: ["Russon One"],
       },
+      borderWidth: {
+        3: '3px',
+      },
+      minWidth: {
+        36: '9rem',
+        44: '11rem',
+        56: '14rem',
+        60: '15rem',
+        72: '18rem',
+        80: '20rem',
+      },
+      maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+      },
+      zIndex: {
+        60: '60',
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),
+    plugin(({ addVariant, e }) => {
+      addVariant('sidebar-expanded', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => `.sidebar-expanded .${e(`sidebar-expanded${separator}${className}`)}`);
+      });
+    }),
+  ],
 };

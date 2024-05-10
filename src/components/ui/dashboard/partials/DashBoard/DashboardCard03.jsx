@@ -1,44 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Icon from '../../images/icon-03.svg';
-import EditMenu from '../../jsx/DropdownEditMenu';
-
-// Import utilities
-import { tailwindConfig, hexToRGB } from '../../utils/Utils';
+import React, { useState } from 'react';
+import Icon from '../../../../../assets/images/game.jpg';
+import Icon1 from '../../../../../assets/images/game1.mp4';
+import { useNavigate } from 'react-router-dom';
 
 function DashboardCard03() {
+  const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-3xl border border-slate-200 dark:border-slate-700">
+    <div
+      className="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-3xl border border-slate-200 dark:border-slate-700"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="px-5 pt-5">
-        <header className="flex justify-between items-start mb-2">
-          {/* Icon */}
-          <img src={Icon} width="32" height="32" alt="Icon 03" />
-          {/* Menu button */}
-          <EditMenu align="right" className="relative inline-flex">
-            <li>
-              <Link className="font-medium text-sm text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-200 flex py-1 px-3" to="#0">
-                Option 1
-              </Link>
-            </li>
-            <li>
-              <Link className="font-medium text-sm text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-200 flex py-1 px-3" to="#0">
-                Option 2
-              </Link>
-            </li>
-            <li>
-              <Link className="font-medium text-sm text-rose-500 hover:text-rose-600 flex py-1 px-3" to="#0">
-                Remove
-              </Link>
-            </li>
-          </EditMenu>
+        <header className="flex justify-between align-center items-start mb-2">
+          {/* Conditional rendering based on isHovered state */}
+          {isHovered ? (
+            <video
+              src={Icon1}
+              autoPlay
+              loop
+              muted
+              className="object-cover flex justify-center items-center" // Center the video
+              style={{ height: '180px', width: '400px' }}
+            />
+          ) : (
+            <img
+              src={Icon}
+              width="600"
+              height="400"
+              alt="Icon 01"
+              className="opacity-100"
+            />
+          )}
         </header>
-        <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2">Acme Professional</h2>
-        <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-1">Sales</div>
-        <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-2">$9,962</div>
-          <div className="text-sm font-semibold text-white px-1.5 bg-emerald-500 rounded-full">+49%</div>
-        </div>
+        <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2 text-center font-serif">
+          Fun Zone Den
+        </h2>
+        <div className='text-gray-400 font-semibold text-center'>"Relax your Mind with interesting Games!"</div>
+        <div className='flex justify-center m-4'><button className='bg-white border-lime-600 border-3 p-1 text-center text-black rounded-md' onClick={() => navigate('/game')}>Explore</button></div>
       </div>
     </div>
   );

@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import '../../../../../style.css';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Chip } from '../../Common/Chip';
+import './styles.css'; // Import the updated CSS file
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons"; // Import icon variables
+
 
 export const Blog = () => {
   const API_URL = 'http://localhost:3500/blogs';
   const [isLoading, setIsLoading] = useState(true);
   const [blog, setBlog] = useState(null);
   const { id } = useParams();
-
+  
   useEffect(() => {
     const fetchBlog = async () => {
       try {
@@ -30,33 +33,35 @@ export const Blog = () => {
   }, [id]);
 
   return (
-    <div>
-      <Link className='go-back' to='/'>
+    <div className="blog-wrap">
+      <Link className="go-back" to="/blog">
         <span>←</span> Go Back
       </Link>
       {isLoading ? (
         <div>Loading...</div>
       ) : blog ? (
-        <div className='blog-wrap'>
+        <div>
           <header>
-            <p className='blog-date'>Published {blog.createdAt}</p>
-            <h1 className='text-3xl'>{blog.title}</h1>
-            <div className='blog-subcategory'>
-              { blog.subcategory && blog.subcategory.map((category) => (
-                <div key={category}>
-                  <Chip label={category} />
-                </div>
-              ))}
+            <p className="blog-date">Published {blog.createdAt}</p>
+            <h1>{blog.title}</h1>
+            <div className="blog-subcategory">
+              {blog.subcategory &&
+                blog.subcategory.map((category) => (
+                  <div key={category}>
+                    <Chip label={category} />
+                  </div>
+                ))}
             </div>
           </header>
-          <img src={blog.cover} alt='cover' className='w-1/2' />
-          <p className='blog-description'>{blog.description}</p>
+          <img src={blog.cover} alt="cover" className="w-full" />
+          <p className="blog-description">{blog.description}</p>
         </div>
       ) : (
-        <div className='blog-not-found'>
+        <div className="blog-not-found">
           <h1>Error: Blog Not Found...</h1>
         </div>
       )}
-    </div>
-  );
+      
+    </div>
+  );
 };

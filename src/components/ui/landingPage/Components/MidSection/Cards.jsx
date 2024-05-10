@@ -22,7 +22,7 @@ const Cards = () => {
         <h2
           className={
             theme === "light"
-              ? "sm:text-5xl text-dark text-6xl font-bold pt-20 no-underline font-inter align-middle tracking-wide normal-case leading-none cursor-pointer"
+              ? "sm:text-5xl text-black text-6xl font-bold pt-20 no-underline font-inter align-middle tracking-wide normal-case leading-none cursor-pointer"
               : "sm:text-5xl text-white text-6xl font-bold pt-20 no-underline font-inter align-middle tracking-wide normal-case leading-none cursor-pointer"
           }
         >
@@ -31,7 +31,7 @@ const Cards = () => {
         <p
           className={
             theme === "light"
-              ? "sm:text-xl text-dark text-2xl font-normal pt-10 no-underline font-inter align-middle tracking-wide normal-case leading-none cursor-pointer"
+              ? "sm:text-xl text-black text-2xl font-normal pt-10 no-underline font-inter align-middle tracking-wide normal-case leading-none cursor-pointer"
               : "sm:text-xl text-white text-2xl font-normal pt-10 no-underline font-inter align-middle tracking-wide normal-case leading-none cursor-pointer"
           }
         >
@@ -72,7 +72,7 @@ const Cards = () => {
               <Card
                 className={
                   item.id === "1"
-                    ? "w-80 bg-dark border border-white"
+                    ? "w-80 bg-black border border-white"
                     : "w-80 bg-white"
                 }
               >
@@ -82,7 +82,7 @@ const Cards = () => {
                     className={
                       item.id === "1"
                         ? "mb-2 fonm-inter leading-normal no-underline align-middle tracking-wide normal-case text-white"
-                        : "mb-2 fonm-inter leading-normal no-underline align-middle tracking-wide normal-case text-dark"
+                        : "mb-2 fonm-inter leading-normal no-underline align-middle tracking-wide normal-case text-black"
                     }
                   >
                     {item.title}
@@ -91,7 +91,7 @@ const Cards = () => {
                     className={
                       item.id === "1"
                         ? "mb-2 fonm-inter font-light leading-normal no-underline align-middle tracking-wide normal-case h-32 text-white"
-                        : "mb-2 fonm-inter font-light  leading-normal no-underline align-middle tracking-wide normal-case h-32 text-dark"
+                        : "mb-2 fonm-inter font-light  leading-normal no-underline align-middle tracking-wide normal-case h-32 text-black"
                     }
                   >
                     {item.text}
@@ -106,7 +106,7 @@ const Cards = () => {
                     className={
                       item.id === "1"
                         ? "text-center pb-2 font-inter font-light leading-normal no-underline align-middle hover:animate-pulse tracking-wide cursor-pointer text-white"
-                        : "text-center pb-2 font-inter font-light leading-normal no-underline align-middle hover:animate-pulse tracking-wide cursor-pointer text-dark"
+                        : "text-center pb-2 font-inter font-light leading-normal no-underline align-middle hover:animate-pulse tracking-wide cursor-pointer text-black"
                     }
                   >
                     See more

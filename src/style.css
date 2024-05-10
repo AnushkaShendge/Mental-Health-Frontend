@@ -2,6 +2,7 @@
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+@import 'output.css';
 
 /* Additional styles */
 @import 'additional-styles/utility-patterns.css';

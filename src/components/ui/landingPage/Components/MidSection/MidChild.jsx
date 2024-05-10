@@ -25,7 +25,7 @@ const MidChild = ({ data, click }) => {
                 <h3
                   className={
                     theme === "light"
-                      ? "sm:text-4xl text-6xl font-bold font-inter no-underline align-middle tracking-wide normal-case leading-none text-dark pb-4"
+                      ? "sm:text-4xl text-6xl font-bold font-inter no-underline align-middle tracking-wide normal-case leading-none text-black pb-4"
                       : "sm:text-4xl text-6xl font-bold font-inter no-underline align-middle tracking-wide normal-case leading-none text-white pb-4"
                   }
                 >
@@ -37,7 +37,7 @@ const MidChild = ({ data, click }) => {
                   <p
                     className={
                       theme === "light"
-                        ? "sm:text-2xl text-3xl font-normal font-inter no-underline align-middle tracking-wide normal-case leading-none text-dark"
+                        ? "sm:text-2xl text-3xl font-normal font-inter no-underline align-middle tracking-wide normal-case leading-none text-black"
                         : "sm:text-2xl text-3xl font-normal font-inter no-underline align-middle tracking-wide normal-case leading-none text-white"
                     }
                   >

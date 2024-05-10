@@ -25,7 +25,7 @@ const MobileNavContainer = ({ name, link, setOpen }) => {
             transition={{ type: "tween", duration: 1 }}
           >
             <div className="pt-4">
-              <h3 className="text-sm font-medium font-inter no-underline align-middle tracking-wide normal-case leading-none text-dark">
+              <h3 className="text-sm font-medium font-inter no-underline align-middle tracking-wide normal-case leading-none text-black">
                 {name}
               </h3>
             </div>

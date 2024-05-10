@@ -23,7 +23,7 @@ const MidComponentItem = ({ title, img, text, reverse }) => {
             <h2
               className={
                 theme === "light"
-                  ? "sm:text-4xl text-6xl pt-10 pb-4 font-bold font-inter no-underline align-middle tracking-wide normal-case leading-none text-dark"
+                  ? "sm:text-4xl text-6xl pt-10 pb-4 font-bold font-inter no-underline align-middle tracking-wide normal-case leading-none text-black"
                   : "sm:text-4xl text-6xl pt-10 pb-4 font-bold font-inter no-underline align-middle tracking-wide normal-case leading-none text-white"
               }
             >
@@ -32,7 +32,7 @@ const MidComponentItem = ({ title, img, text, reverse }) => {
             <p
               className={
                 theme === "light"
-                  ? "sm:text-xl text-2xl w-full pb-4 font-normal font-inter no-underline align-middle tracking-wide normal-case leading-none text-dark"
+                  ? "sm:text-xl text-2xl w-full pb-4 font-normal font-inter no-underline align-middle tracking-wide normal-case leading-none text-black"
                   : "sm:text-xl text-2xl w-full pb-4 font-normal font-inter no-underline align-middle tracking-wide normal-case leading-none text-white"
               }
             >
@@ -69,7 +69,7 @@ const MidComponentItem = ({ title, img, text, reverse }) => {
             <h2
               className={
                 theme === "light"
-                  ? "sm:text-4xl text-6xl pt-10 pb-4 font-bold font-inter no-underline align-middle tracking-wide normal-case leading-none text-dark"
+                  ? "sm:text-4xl text-6xl pt-10 pb-4 font-bold font-inter no-underline align-middle tracking-wide normal-case leading-none text-black"
                   : "sm:text-4xl text-6xl pt-10 pb-4 font-bold font-inter no-underline align-middle tracking-wide normal-case leading-none text-white"
               }
             >
@@ -90,7 +90,7 @@ const MidComponentItem = ({ title, img, text, reverse }) => {
                     <p
                       className={
                         theme === "light"
-                          ? "sm:text-xl text-2xl font-normal font-inter no-underline align-middle tracking-wide normal-case leading-none text-dark w-full "
+                          ? "sm:text-xl text-2xl font-normal font-inter no-underline align-middle tracking-wide normal-case leading-none text-black w-full "
                           : "sm:text-xl text-2xl font-normal font-inter no-underline align-middle tracking-wide normal-case leading-none text-white w-full "
                       }
                     >

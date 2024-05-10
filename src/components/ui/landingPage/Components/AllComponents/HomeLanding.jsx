@@ -25,7 +25,7 @@ const HomeLanding = () => {
       <div>
         <PopUpButton handleScroll={handleScroll}></PopUpButton>
       </div>
-      <div className={theme === "light" ? "bg-white" : "bg-dark"}>
+      <div className={theme === "light" ? "bg-white" : "bg-black"}>
         <WrapperContainer navHead>
           <Navbar></Navbar>
           <Header topRef={sectionTop}></Header>

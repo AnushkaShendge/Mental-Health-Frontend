@@ -40,7 +40,7 @@ const Header = ({ topRef }) => {
             <p
               className={
                 theme === "light"
-                  ? "sm:text-lg w-4/5 font-inter font-medium no-underline align-middle tracking-wide normal-case text-dark text-2xl"
+                  ? "sm:text-lg w-4/5 font-inter font-medium no-underline align-middle tracking-wide normal-case text-black text-2xl"
                   : "sm:text-lg w-4/5 font-inter font-medium no-underline align-middle tracking-wide normal-case text-white text-2xl"
               }
             >

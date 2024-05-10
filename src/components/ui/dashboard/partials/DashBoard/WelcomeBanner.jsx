@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './WelcomeBanner.css'
+import './WelcomeBanner.css';
 
 function WelcomeBanner({ username }) {
   const getTimeOfDay = () => {
@@ -12,32 +12,27 @@ function WelcomeBanner({ username }) {
       return 'Evening';
     }
   };
+
   const greeting = () => {
     const timeOfDay = getTimeOfDay();
     return `Good ${timeOfDay}, ${username} 👋`;
   };
-  const [showText, setShowText] = useState(false);
+
+  const [showText, setShowText] = useState('');
 
   useEffect(() => {
-    // Function to animate text with typewriter effect
-    const animateText = () => {
-      const text = "Today is a great day, Tomorrow will be even better!";
-      let index = 0;
-      const interval = setInterval(() => {
-        if (index <= text.length) {
-          setShowText(text.substring(0, index));
-          index++;
-        } else {
-          clearInterval(interval);
-        }
-      }, 100); // Adjust the interval to change the typing speed
-    };
+    const text = '"Today is a great day, Tomorrow will be even better!"';
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index <= text.length) {
+        setShowText(text.substring(0, index));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100); // Adjust the interval to change the typing speed
 
-    // Start animating text after a delay (e.g., 1 second)
-    const timeout = setTimeout(() => {
-      animateText();
-    }, 1000); 
-    return () => clearTimeout(timeout);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -85,12 +80,11 @@ function WelcomeBanner({ username }) {
       </div>
 
       {/* Content */}
-      <div className="relative">
-        <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">{greeting()} </h1>
-        <p className={`dark:text-indigo-400 ${showText ? 'typewriter typewriter-animation' : ''}`}>
-  {showText && "Today is a great day, Tomorrow will be even better"}
-</p>
-
+      <div className="relative container">
+        <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">{greeting()}</h1>
+        <p className="dark:text-indigo-400 text">
+          <span className="typewriter text-indigo-200" >{showText}</span>
+        </p>
       </div>
     </div>
   );
