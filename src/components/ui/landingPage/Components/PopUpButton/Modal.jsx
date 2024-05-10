@@ -5,21 +5,31 @@ import axios from "axios";
 
 const Modal = ({ open, setOpen }) => {
   const [message, setMessage] = useState("");
-  const handleSubmit = async(e) => {
+  const [conversation, setConversation] = useState([]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:8000/chatbot", {
-        message: message
+        message: message,
       });
 
-      console.log(response.data); 
-      setMessage(""); 
-      setOpen(false); 
+      const responseData = response.data;
+
+      // Update conversation with user message and bot response
+      setConversation([
+        ...conversation,
+        { text: message, isUser: true },
+        { text: responseData.response, isUser: false },
+      ]);
+
+      setMessage(""); // Clear input after sending
+      setOpen(true); // Keep modal open after sending message
     } catch (error) {
       console.error("Error:", error);
     }
   };
-  
+
   return (
     <div>
       <motion.div
@@ -32,13 +42,13 @@ const Modal = ({ open, setOpen }) => {
           height: open && "375px",
           opacity: 1,
         }}
-        transition={{ type: "spring", duration: 2, ease: "easeInOut" }}
+        transition={{ type: "spring", duration: 0.8, ease: "easeInOut" }}
       >
         <motion.div
           className="pt-4 flex flex-col pl-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ type: "Tween", duration: 2 }}
+          transition={{ type: "Tween", duration: 0.5 }}
         >
           <h5 className="cursor-pointer text-4xl text-blue-500 font-inter font-medium tracking-tight pt-4">
             Hello There 🖐🏻
@@ -49,22 +59,46 @@ const Modal = ({ open, setOpen }) => {
           <span className="text-md text-blue-500 font-inter font-medium tracking-tight pt-4">
             Ask us anything.
           </span>
-          <div className="pt-8">
-            <form onSubmit={handleSubmit}>
+          <div className="pt-8 h-52 overflow-y-auto">
+            {/* Render conversation messages */}
+            {conversation.map((message, index) => (
+              <div
+                key={index}
+                className={`${
+                  message.isUser ? "text-right" : "text-left"
+                } p-2 mb-2`}
+              >
+                <span
+                  className={`${
+                    message.isUser
+                      ? "bg-gray-300 rounded-lg px-3 py-1 inline-block"
+                      : "bg-green-200 rounded-lg px-3 py-1 inline-block"
+                  }`}
+                >
+                  {message.text}
+                </span>
+              </div>
+            ))}
+            <form onSubmit={handleSubmit} className="flex items-center">
               <input
                 type="text"
                 name="message"
-                className="outline-none border-none text-black"
+                className="flex-grow outline-none border border-gray-300 rounded-l-lg py-1 px-3"
                 placeholder="Send us a message..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-              ></input>
-              <button type="submit">Submit</button>
+              />
+              <button
+                type="submit"
+                className="bg-blue-500 text-white py-1 px-3 rounded-r-lg mr-4"
+              >
+                Submit
+              </button>
             </form>
           </div>
           <Tooltip content="Close" placement="left">
             <div
-              className=" absolute top-4 right-4 text-white cursor-pointer"
+              className="absolute top-4 right-4 text-white cursor-pointer"
               onClick={() => setOpen(false)}
             >
               <svg

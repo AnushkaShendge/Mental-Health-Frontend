@@ -20,7 +20,7 @@ const Header = ({ topRef }) => {
           <h1
             className={
               theme === "light"
-                ? "sm:text-3xl text-5xl font-russonOne font-medium no-underline align-middle tracking-wide normal-case leading-normal text-dark"
+                ? "sm:text-3xl text-5xl font-russonOne font-medium no-underline align-middle tracking-wide normal-case leading-normal text-black"
                 : "sm:text-3xl text-5xl font-russonOne font-medium no-underline align-middle tracking-wide normal-case leading-normal text-white"
             }
           >
@@ -28,7 +28,7 @@ const Header = ({ topRef }) => {
             <span
               className={
                 theme === "light"
-                  ? "sm:text-4xl text-dark text-6xl font-petitFormal font-bold"
+                  ? "sm:text-4xl text-black text-6xl font-petitFormal font-bold"
                   : "sm:text-4xl text-white text-6xl font-petitFormal font-bold"
               }
             >
@@ -60,7 +60,7 @@ const Header = ({ topRef }) => {
             <h2
               className={
                 theme === "light"
-                  ? "sm:text-3xl text-5xl pb-4 font-russonOne font-medium no-underline align-middle tracking-wide normal-case leading-normal text-dark"
+                  ? "sm:text-3xl text-5xl pb-4 font-russonOne font-medium no-underline align-middle tracking-wide normal-case leading-normal text-black"
                   : "sm:text-3xl text-5xl pb-4 font-russonOne font-medium no-underline align-middle tracking-wide normal-case leading-normal text-white"
               }
             >
