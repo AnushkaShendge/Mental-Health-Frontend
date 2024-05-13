@@ -3,7 +3,7 @@ import Icon from '../../../../../assets/images/quiz.jpg';
 import Icon1 from '../../../../../assets/images/quiz1.mp4';
 import { useNavigate } from 'react-router-dom';
 
-function DashboardCard03() {
+function DashboardCard01() {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate()
 
@@ -23,13 +23,14 @@ function DashboardCard03() {
               loop
               muted
               className="object-cover flex justify-center items-center" // Center the video
-              style={{ height: '180px', width: '400px' }}
+              style={{ height: '190px', width: '400px' }}
             />
           ) : (
             <img
               src={Icon}
-              height="10px"
+              style={{height: '180px' , width: '400px'}}
               alt="Icon 01"
+
               className="opacity-100"
             />
           )}
@@ -44,4 +45,4 @@ function DashboardCard03() {
   );
 }
 
-export default DashboardCard03;
+export default DashboardCard01;

@@ -23,12 +23,12 @@ function DashboardCard04() {
               loop
               muted
               className="object-cover flex justify-center items-center" // Center the video
-              style={{ height: '180px', width: '400px' }}
+              style={{ height: '170px', width: '400px' }}
             />
           ) : (
             <img
               src={Icon}
-              height="10px"
+              style={{ height: '160px', width: '400px'}}
               alt="Icon 01"
               className="opacity-100"
             />

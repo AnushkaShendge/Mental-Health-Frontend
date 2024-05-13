@@ -13,6 +13,9 @@ import { Blog } from "./components/ui/Blog/Pages/Blog";
 import NewPost from './components/ui/Blog/Pages/NewPost/NewPost';
 import HomeLanding from "./components/ui/landingPage/Components/AllComponents/HomeLanding";
 import ThemeContext from "./components/ui/landingPage/Components/ContextWrapper/ThemeContext";
+import Header from "./components/ui/games/Componets/Header";
+import HomeGame from "./components/ui/games/Pages/HomeGame";
+import {ThemeContextGame} from './components/ui/games/Context/ThemeContext';
 import './output.css'
 import "./App.css"
 
@@ -59,28 +62,39 @@ function App() {
     window.scroll({ top: 0 });
     document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]);
+  const [theme, setTheme] = useState('light')
+  useEffect(()=>{
+     
+    setTheme(localStorage.getItem('theme')?localStorage.getItem('theme'):'dark')
   
-  // useEffect(() => {
-  //   if (!loggedIn) {
-  //   } else {
-  //     navigate('/dashboard') // Navigate to the dashboard if logged in
-  //   }
-  // }, [loggedIn, navigate]);
+  },[])
   return (
     <div>
       <Routes>
-       <Route path="/" element={<ThemeContext><HomeLanding/></ThemeContext>} />
-        <Route path="/dashboard" element={(loggedIn) ? <Dashboard/> : <Login/>}  />
+        <Route path="/" element={<ThemeContext><HomeLanding/></ThemeContext>} />
+        <Route path="/dashboard" element={(loggedIn) ? <Dashboard/> : <Login/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path='/chats' element={(loggedIn) ? <LoginForm/> : <Login/>} />
+        <Route path='/chats' element={(loggedIn) ? ChatComponent : <Login/>} />
         <Route path="/blog" exact element={(loggedIn) ? <Home/> : <Login/>} />
         <Route path="/NewPost" element={<NewPost handleAddBlog={handleAddBlog} blogs={blogs} setBlogs={setBlogs} setFetchError={setFetchError} />} />
         <Route path="/blog/:id" element={<Blog />} />
+
+        {/* Render the /game route with conditional classes based on the theme */}
+        <Route
+          path="/game"
+          element={
+            <ThemeContextGame.Provider value={{theme,setTheme}}>
+              <div className={`${theme} ${theme=='dark'?'bg-[#121212]': 'bg-white'}`}>
+                <Header/>
+                <HomeGame/>
+              </div>
+            </ThemeContextGame.Provider>
+          }
+        />
       </Routes>
     </div>
   );
 }
-
 function ChatComponent() {
   const username = localStorage.getItem('username');
   const password = localStorage.getItem('password');
@@ -99,8 +113,8 @@ function ChatComponent() {
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
     />
   );
-}
 
+}
 export default function WrappedApp() {
   return (
     <AppStateProvider>

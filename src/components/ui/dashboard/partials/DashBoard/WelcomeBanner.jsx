@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './WelcomeBanner.css';
 
+
 function WelcomeBanner({ username }) {
   const getTimeOfDay = () => {
     const hour = new Date().getHours();
@@ -83,7 +84,7 @@ function WelcomeBanner({ username }) {
       <div className="relative container">
         <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">{greeting()}</h1>
         <p className="dark:text-indigo-400 text">
-          <span className="typewriter text-indigo-200" >{showText}</span>
+          <span className="typewriter dark:text-blue-300  text-blue-500" >{showText}</span>
         </p>
       </div>
     </div>

@@ -91,33 +91,33 @@ function Dashboard() {
                 </div>
 
                 {/* Cards */}
-                <div className="group grid grid-cols-12 gap-6">
-                  <div className=" box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                <div className="grid grid-cols-8 gap-2">
+                  <div className=" box sm:col-span-6 md:col-span-4 lg:col-span-4 col-span-4">
                     <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 shadow rounded-lg">
                       <DashboardCard01 />
                     </div>
                   </div>
-                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                <div className="box  sm:col-span-6 md:col-span-4 lg:col-span-4 col-span-4">
                   <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg">
                     <DashboardCard02 />
                   </div>
                 </div>
-                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                <div className="box sm:col-span-6 md:col-span-4 lg:col-span-4 col-span-4">
                   <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg">
                     <DashboardCard03 />
                   </div>
                 </div>
-                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                <div className="box sm:col-span-6 md:col-span-4 lg:col-span-4 col-span-4">
                   <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg">
                     <DashboardCard04 />
                   </div>
                 </div>
-                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                <div className="box sm:col-span-6 md:col-span-4 lg:col-span-4 col-span-4">
                   <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg ">
                     <DashboardCard14 />
                   </div>
                 </div>
-                <div className="box col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-4">
+                <div className="box sm:col-span-6 md:col-span-4 lg:col-span-4 col-span-4">
                   <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 rounded-lg ">
                     <DashboardCard15 />
                   </div>
