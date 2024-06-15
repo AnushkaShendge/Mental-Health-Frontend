@@ -15,23 +15,30 @@ export default function ThemeProvider({children}) {
   };
 
   useEffect(() => {
-    document.documentElement.classList.add('[&_*]:!transition-none');
-    if (theme === 'light') {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.style.colorScheme = 'light';
-    } else {
-      document.documentElement.classList.add('dark');
-      document.documentElement.style.colorScheme = 'dark';
-    }
+    const root = document.documentElement;
+    if (root) {
+      root.classList.add('[&_*]:!transition-none');
+      if (theme === 'light') {
+        root.classList.remove('dark');
+        root.style.colorScheme = 'light';
+      } else {
+        root.classList.add('dark');
+        root.style.colorScheme = 'dark';
+      }
+      
+      const transitionTimeout = setTimeout(() => {
+        root.classList.remove('[&_*]:!transition-none');
+      }, 1);
 
-    const transitionTimeout = setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none');
-    }, 1);
-    
-    return () => clearTimeout(transitionTimeout);
+      return () => clearTimeout(transitionTimeout);
+    }
   }, [theme]);
 
-  return <ThemeContext.Provider value={{ currentTheme: theme, changeCurrentTheme }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ currentTheme: theme, changeCurrentTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }
 
 export const useThemeProvider = () => useContext(ThemeContext);

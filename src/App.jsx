@@ -1,11 +1,11 @@
-import React, { useEffect , useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppStateProvider, useAppState } from "./AppStateContext";
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { ChatEngine } from 'react-chat-engine';
 import Dashboard from './components/ui/dashboard/pages/Dashboard';
 import ChatFeed from './components/ui/ChatPage/ChatFeed';
 import LoginForm from './components/ui/ChatPage/LoginForm';
-import './style.css'
+import './style.css';
 import './components/ui/ChatPage/ChatPage.css';
 import Login from "./components/ui/login/login";
 import { Home } from "./components/ui/Blog/Pages/Home";
@@ -15,9 +15,10 @@ import HomeLanding from "./components/ui/landingPage/Components/AllComponents/Ho
 import ThemeContext from "./components/ui/landingPage/Components/ContextWrapper/ThemeContext";
 import Header from "./components/ui/games/Componets/Header";
 import HomeGame from "./components/ui/games/Pages/HomeGame";
-import {ThemeContextGame} from './components/ui/games/Context/ThemeContext';
-import './output.css'
-import "./App.css"
+import { ThemeContextGame } from './components/ui/games/Context/ThemeContext';
+
+import './output.css';
+import "./App.css";
 
 const projectID = '121610f8-3526-459f-8ebd-39ed9a4b79e9';
 
@@ -25,7 +26,7 @@ function App() {
   const { loggedIn } = useAppState();
   const location = useLocation();
   const navigate = useNavigate();
-  const [justLoggedIn, setJustLoggedIn] = useState(false); // Variable to track if the user just logged in
+  const [justLoggedIn, setJustLoggedIn] = useState(false);
 
   const API_URL = 'http://localhost:3500/blogs';
 
@@ -34,8 +35,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleAddBlog = (newBlog) => {
-    setBlogs([...blogs, newBlog]); // Add the new blog to the existing array of blogs
-  }
+    setBlogs([...blogs, newBlog]);
+  };
+
   useEffect(() => {
     const fetchItems = async () => {
       try {
@@ -46,47 +48,46 @@ function App() {
         setFetchError(null);
       } catch (err) {
         console.log(err.message);
+        setFetchError(err.message);
       } finally {
         setIsLoading(false);
       }
-    }
+    };
     setTimeout(() => {
       (async () => await fetchItems())();
     }, 1000);
 
-  }, [])
-  
+  }, []);
 
   useEffect(() => {
     document.querySelector('html').style.scrollBehavior = 'auto';
     window.scroll({ top: 0 });
     document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]);
-  const [theme, setTheme] = useState('light')
-  useEffect(()=>{
-     
-    setTheme(localStorage.getItem('theme')?localStorage.getItem('theme'):'dark')
-  
-  },[])
+
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    setTheme(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark');
+  }, []);
+
   return (
     <div>
       <Routes>
-        <Route path="/" element={<ThemeContext><HomeLanding/></ThemeContext>} />
-        <Route path="/dashboard" element={(loggedIn) ? <Dashboard/> : <Login/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path='/chats' element={(loggedIn) ? ChatComponent : <Login/>} />
-        <Route path="/blog" exact element={(loggedIn) ? <Home/> : <Login/>} />
+        <Route path="/" element={<ThemeContext><HomeLanding /></ThemeContext>} />
+        <Route path="/dashboard" element={loggedIn ? <Dashboard /> : <Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/chats" element={loggedIn ? <ChatComponent /> : <Login />} />
+        <Route path="/blog" exact element={loggedIn ? <Home /> : <Login />} />
         <Route path="/NewPost" element={<NewPost handleAddBlog={handleAddBlog} blogs={blogs} setBlogs={setBlogs} setFetchError={setFetchError} />} />
         <Route path="/blog/:id" element={<Blog />} />
-
-        {/* Render the /game route with conditional classes based on the theme */}
         <Route
           path="/game"
           element={
-            <ThemeContextGame.Provider value={{theme,setTheme}}>
-              <div className={`${theme} ${theme=='dark'?'bg-[#121212]': 'bg-white'}`}>
-                <Header/>
-                <HomeGame/>
+            <ThemeContextGame.Provider value={{ theme, setTheme }}>
+              <div className={`${theme} ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'}`}>
+                <Header />
+                <HomeGame />
               </div>
             </ThemeContextGame.Provider>
           }
@@ -95,6 +96,7 @@ function App() {
     </div>
   );
 }
+
 function ChatComponent() {
   const username = localStorage.getItem('username');
   const password = localStorage.getItem('password');
@@ -113,8 +115,8 @@ function ChatComponent() {
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
     />
   );
-
 }
+
 export default function WrappedApp() {
   return (
     <AppStateProvider>

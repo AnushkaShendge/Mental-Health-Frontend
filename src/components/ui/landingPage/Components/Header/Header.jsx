@@ -24,7 +24,7 @@ const Header = ({ topRef }) => {
                 : "sm:text-3xl text-5xl font-russonOne font-medium no-underline align-middle tracking-wide normal-case leading-normal text-white"
             }
           >
-            AxeL Brand new{" "}
+            {" "} 
             <span
               className={
                 theme === "light"
@@ -32,9 +32,8 @@ const Header = ({ topRef }) => {
                   : "sm:text-4xl text-white text-6xl font-petitFormal font-bold"
               }
             >
-              Furniture
+               Welcome to WellCare
             </span>{" "}
-            Mobile App
           </h1>
           <div className="mt-4">
             <p
@@ -44,9 +43,9 @@ const Header = ({ topRef }) => {
                   : "sm:text-lg w-4/5 font-inter font-medium no-underline align-middle tracking-wide normal-case text-white text-2xl"
               }
             >
-              Giving your home a proper makeover never was this easy. Modern
-              and stylish furniture for decent prices. Take a look at what we offer
-              with a simple button click.
+              Prioritize your mental health with our all-in-one application. 
+              Engage in meditation, quizzes, games, and blogs 
+              to enhance your well-being every day.
             </p>
           </div>
           <div className="pb-20">
@@ -64,11 +63,12 @@ const Header = ({ topRef }) => {
                   : "sm:text-3xl text-5xl pb-4 font-russonOne font-medium no-underline align-middle tracking-wide normal-case leading-normal text-white"
               }
             >
-              Modern Design
+              
+            Enhance Your Well-Being
             </h2>
           </div>
           <img
-            className="sm:h-[475px] h-[765px] w-full bg-no-repeat bg-center relative z-10 header rounded-xl"
+            className="sm:h-[475px] h-[765px] w-fullb bg-no-repeat bg-center relative z-10 header rounded-xl"
             src={header1}
             alt="header-phone"
           />

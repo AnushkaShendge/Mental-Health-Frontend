@@ -91,8 +91,8 @@ function Dashboard() {
                 </div>
 
                 {/* Cards */}
-                <div className="grid grid-cols-8 gap-2">
-                  <div className=" box sm:col-span-6 md:col-span-4 lg:col-span-4 col-span-4">
+                <div className="lg:grid grid-cols-8 gap-2 ">
+                  <div className=" box sm:col-span-8 md:col-span-6 lg:col-span-4 ">
                     <div className="hover:opacity-60 transition-opacity duration-300 ease-in-out p-4 shadow rounded-lg">
                       <DashboardCard01 />
                     </div>
